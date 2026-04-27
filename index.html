@@ -11,7 +11,6 @@
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="styles.css">
 	<style>
-		/* ── Extensions portfolio ── */
 		.competence-section {
 			padding: 3rem 0;
 			border-top: 1px solid rgba(0,200,255,0.07);
@@ -36,25 +35,10 @@
 			color: var(--accent);
 			background: rgba(0,199,255,0.04);
 		}
-		.competence-title {
-			margin: 0;
-			font-size: 1.15rem;
-			color: var(--accent);
-			letter-spacing: 0.04em;
-		}
-		.competence-subtitle {
-			margin: 0.2rem 0 0;
-			font-size: 0.78rem;
-			color: var(--muted);
-		}
+		.competence-title { margin: 0; font-size: 1.15rem; color: var(--accent); letter-spacing: 0.04em; }
+		.competence-subtitle { margin: 0.2rem 0 0; font-size: 0.78rem; color: var(--muted); }
 
-		/* Onglets AC / Preuves / Réflexion */
-		.tabs {
-			display: flex;
-			gap: 0.4rem;
-			margin-bottom: 1rem;
-			flex-wrap: wrap;
-		}
+		.tabs { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap; }
 		.tab-btn {
 			background: transparent;
 			border: 1px solid rgba(0,200,255,0.12);
@@ -66,44 +50,31 @@
 			font-size: 0.78rem;
 			transition: color .15s, border-color .15s;
 		}
-		.tab-btn.active, .tab-btn:hover {
-			color: var(--neon);
-			border-color: rgba(0,255,213,0.35);
-		}
+		.tab-btn.active, .tab-btn:hover { color: var(--neon); border-color: rgba(0,255,213,0.35); }
 		.tab-panel { display: none; }
 		.tab-panel.active { display: block; }
 
-		/* Apprentissages critiques */
-		.ac-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-			gap: 0.75rem;
-		}
+		.ac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem; }
 		.ac-item {
 			background: var(--glass);
 			border: 1px solid rgba(0,200,255,0.07);
 			border-radius: 7px;
 			padding: 0.9rem 1rem;
 		}
-		.ac-code {
-			font-size: 0.68rem;
-			color: var(--accent);
-			letter-spacing: 0.1em;
-			margin-bottom: 0.3rem;
-		}
-		.ac-label {
-			font-size: 0.82rem;
-			color: var(--neon);
-			font-weight: 600;
-			margin-bottom: 0.4rem;
-		}
-		.ac-desc {
-			font-size: 0.78rem;
-			color: var(--muted);
-			line-height: 1.5;
-		}
+		.ac-code { font-size: 0.68rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+		.ac-label { font-size: 0.82rem; color: var(--neon); font-weight: 600; margin-bottom: 0.4rem; }
+		.ac-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
-		/* Situations professionnelles */
+		.ac-origin {
+			display: inline-block;
+			font-size: 0.64rem;
+			padding: 0.1rem 0.45rem;
+			border-radius: 3px;
+			margin-bottom: 0.35rem;
+		}
+		.ac-origin.nouveau { background: rgba(0,255,213,0.08); color: var(--neon); border: 1px solid rgba(0,255,213,0.2); }
+		.ac-origin.renforce { background: rgba(0,199,255,0.06); color: var(--muted); border: 1px solid rgba(0,199,255,0.15); }
+
 		.situation-card {
 			border: 1px solid rgba(0,200,255,0.09);
 			border-left: 3px solid var(--accent);
@@ -112,17 +83,9 @@
 			margin-bottom: 0.75rem;
 			background: var(--glass);
 		}
-		.situation-card h4 {
-			margin: 0 0 0.3rem;
-			font-size: 0.88rem;
-			color: var(--neon);
-		}
-		.situation-card p {
-			margin: 0;
-			font-size: 0.8rem;
-			color: var(--muted);
-			line-height: 1.55;
-		}
+		.situation-card h4 { margin: 0 0 0.3rem; font-size: 0.88rem; color: var(--neon); }
+		.situation-card p { margin: 0; font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
 		.tag {
 			display: inline-block;
 			font-size: 0.68rem;
@@ -133,12 +96,7 @@
 			margin: 0.3rem 0.2rem 0 0;
 		}
 
-		/* Composantes essentielles */
-		.ce-list {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
+		.ce-list { list-style: none; padding: 0; margin: 0; }
 		.ce-list li {
 			display: flex;
 			gap: 0.6rem;
@@ -148,14 +106,8 @@
 			font-size: 0.82rem;
 			color: var(--muted);
 		}
-		.ce-list li::before {
-			content: "›";
-			color: var(--neon);
-			flex-shrink: 0;
-			margin-top: 0.05rem;
-		}
+		.ce-list li::before { content: "›"; color: var(--neon); flex-shrink: 0; }
 
-		/* Réflexion */
 		.reflexion-block {
 			background: linear-gradient(135deg, rgba(0,255,213,0.03), rgba(0,199,255,0.02));
 			border: 1px solid rgba(0,255,213,0.1);
@@ -165,17 +117,9 @@
 			color: var(--muted);
 			line-height: 1.7;
 		}
-		.reflexion-block strong {
-			color: var(--neon);
-		}
+		.reflexion-block strong { color: var(--neon); }
 
-		/* Preuve / illustration badge */
-		.proof-row {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.6rem;
-			margin-top: 0.6rem;
-		}
+		.proof-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
 		.proof-badge {
 			display: flex;
 			align-items: center;
@@ -188,102 +132,33 @@
 		}
 		.proof-badge span { color: var(--accent); }
 
-		/* Barre de progression compétence */
-		.level-bar {
-			display: flex;
-			align-items: center;
-			gap: 0.75rem;
-			margin-top: 0.5rem;
-			font-size: 0.75rem;
-			color: var(--muted);
-		}
-		.bar-track {
-			flex: 1;
-			height: 4px;
-			background: rgba(0,200,255,0.08);
-			border-radius: 4px;
-			overflow: hidden;
-		}
-		.bar-fill {
-			height: 100%;
-			border-radius: 4px;
-			background: linear-gradient(90deg, var(--neon), var(--accent));
-		}
+		.level-bar { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); }
+		.bar-track { flex: 1; height: 4px; background: rgba(0,200,255,0.08); border-radius: 4px; overflow: hidden; }
+		.bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--neon), var(--accent)); }
 
-		/* Parcours timeline */
-		.timeline {
-			position: relative;
-			padding-left: 1.5rem;
-		}
-		.timeline::before {
-			content: "";
-			position: absolute;
-			left: 0;
-			top: 0.4rem;
-			bottom: 0;
-			width: 1px;
-			background: rgba(0,200,255,0.12);
-		}
-		.tl-item {
-			position: relative;
-			margin-bottom: 1.2rem;
-		}
-		.tl-item::before {
-			content: "";
-			position: absolute;
-			left: -1.85rem;
-			top: 0.45rem;
-			width: 7px;
-			height: 7px;
-			border-radius: 50%;
-			background: var(--accent);
-			box-shadow: 0 0 8px rgba(0,199,255,0.4);
-		}
-		.tl-date {
-			font-size: 0.7rem;
-			color: var(--accent);
-			letter-spacing: 0.08em;
-			margin-bottom: 0.2rem;
-		}
-		.tl-title {
-			font-size: 0.9rem;
-			color: var(--neon);
-			font-weight: 600;
-		}
-		.tl-desc {
-			font-size: 0.8rem;
-			color: var(--muted);
-			margin-top: 0.2rem;
-			line-height: 1.5;
-		}
+		.timeline { position: relative; padding-left: 1.5rem; }
+		.timeline::before { content: ""; position: absolute; left: 0; top: 0.4rem; bottom: 0; width: 1px; background: rgba(0,200,255,0.12); }
+		.tl-item { position: relative; margin-bottom: 1.2rem; }
+		.tl-item::before { content: ""; position: absolute; left: -1.85rem; top: 0.45rem; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(0,199,255,0.4); }
+		.tl-date { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+		.tl-title { font-size: 0.9rem; color: var(--neon); font-weight: 600; }
+		.tl-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; }
 
-		/* Nav pills compétences */
-		.comp-nav {
-			display: flex;
-			gap: 0.5rem;
-			flex-wrap: wrap;
-			margin-bottom: 2rem;
-		}
+		.comp-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
 		.comp-nav a {
-			font-size: 0.78rem;
-			padding: 0.35rem 0.8rem;
-			border: 1px solid rgba(0,200,255,0.14);
-			border-radius: 5px;
-			color: var(--muted);
-			text-decoration: none;
+			font-size: 0.78rem; padding: 0.35rem 0.8rem;
+			border: 1px solid rgba(0,200,255,0.14); border-radius: 5px;
+			color: var(--muted); text-decoration: none;
 			transition: color .15s, border-color .15s;
 		}
-		.comp-nav a:hover {
-			color: var(--neon);
-			border-color: rgba(0,255,213,0.3);
-		}
+		.comp-nav a:hover { color: var(--neon); border-color: rgba(0,255,213,0.3); }
+
+		.legend { display: flex; gap: 1.2rem; margin-bottom: 1.2rem; font-size: 0.74rem; color: var(--muted); flex-wrap: wrap; }
+		.legend-item { display: flex; align-items: center; gap: 0.4rem; }
 
 		h2 { color: var(--neon); }
 		h3 { color: var(--accent); }
-
-		@media (max-width: 600px) {
-			.ac-grid { grid-template-columns: 1fr; }
-		}
+		@media (max-width: 600px) { .ac-grid { grid-template-columns: 1fr; } }
 	</style>
 </head>
 <body class="cyber">
@@ -305,12 +180,13 @@
 
 	<main id="main" role="main">
 
-		<!-- ══ HERO ══════════════════════════════════════════════ -->
 		<section id="accueil" class="hero">
 			<div class="container">
 				<h2>Étudiant en 1ère année — BUT Réseaux &amp; Télécommunications</h2>
-				<p class="lead">Spécialisation : Administration Réseau &amp; Systèmes, automatisation et programmation.<br>
-				Titulaire d'un <strong>Bac Pro Systèmes Numériques</strong> — 3 stages en entreprise et un CDD au service informatique.</p>
+				<p class="lead">
+					Spécialisation : Administration Réseau &amp; Systèmes.<br>
+					Titulaire d'un <strong>Bac Pro Systèmes Numériques</strong> — 3 stages et un CDD en service informatique.
+				</p>
 				<p>
 					<a class="btn" href="#competences">Mes compétences</a>
 					&nbsp;
@@ -319,21 +195,17 @@
 			</div>
 		</section>
 
-		<!-- ══ À PROPOS ══════════════════════════════════════════ -->
 		<section id="apropos" class="about container">
 			<h2>À propos</h2>
 			<p>
-				Actuellement en 1ère année de BUT RT à l'IUT, je m'intéresse à l'administration des réseaux, la gestion des systèmes
-				Linux/Windows et l'automatisation des tâches répétitives via le scripting.
-				Mon parcours en <strong>Bac Pro Systèmes Numériques</strong> m'a offert une expérience concrète :
-				trois stages en entreprise et un CDD au sein d'un service informatique, où j'ai pu
-				intervenir sur des infrastructures réelles, configurer des équipements actifs et
-				participer à la maintenance du parc informatique.
+				Je suis en 1ère année de BUT RT après un <strong>Bac Pro Systèmes Numériques</strong>
+				qui m'a donné une base technique solide : réseaux, câblage, administration système,
+				maintenance de parc. Trois stages et un CDD m'ont permis d'intervenir sur des
+				infrastructures réelles bien avant d'entrer à l'IUT.
 			</p>
 			<p>
-				Ce portfolio atteste de mes trois compétences BUT RT au travers des apprentissages critiques
-				travaillés en TD/TP, des situations professionnelles vécues et des composantes essentielles
-				du référentiel national.
+				Ce portfolio documente mes trois compétences BUT RT honnêtement : ce que je savais déjà
+				avant le BUT, ce que le BUT m'a apporté en plus, et les apprentissages qui me restent.
 			</p>
 
 			<h3 style="margin-top:1.5rem;">Parcours</h3>
@@ -341,34 +213,42 @@
 				<div class="tl-item">
 					<div class="tl-date">2020 – 2023</div>
 					<div class="tl-title">Bac Pro Systèmes Numériques (option RISC)</div>
-					<div class="tl-desc">Formation aux réseaux informatiques, câblage, maintenance matérielle et logicielle.</div>
+					<div class="tl-desc">Réseaux, câblage structuré, maintenance matérielle et logicielle, administration Windows.</div>
 				</div>
 				<div class="tl-item">
-					<div class="tl-date">Stages × 3 (lycée)</div>
+					<div class="tl-date">Stages × 3</div>
 					<div class="tl-title">Technicien support &amp; réseau en entreprise</div>
-					<div class="tl-desc">Configuration de postes, câblage réseau, dépannage utilisateurs, assistance à l'administration serveur.</div>
+					<div class="tl-desc">Configuration de switchs, VLANs, câblage, NAT, SSH, dépannage utilisateurs sur sites réels.</div>
 				</div>
 				<div class="tl-item">
-					<div class="tl-date">CDD (service informatique)</div>
-					<div class="tl-title">Technicien informatique</div>
-					<div class="tl-desc">Déploiement de postes, inventaire du parc, création de comptes Active Directory, supervision de base.</div>
+					<div class="tl-date">CDD</div>
+					<div class="tl-title">Technicien informatique (service IT)</div>
+					<div class="tl-desc">Déploiement de postes, Active Directory, maintenance réseau quotidienne.</div>
 				</div>
 				<div class="tl-item">
 					<div class="tl-date">2024 – présent</div>
 					<div class="tl-title">BUT Réseaux &amp; Télécommunications — 1ère année</div>
-					<div class="tl-desc">Approfondissement des protocoles réseau, programmation Python/Bash, virtualisation, SAÉ collaboratives.</div>
+					<div class="tl-desc">ACLs, OSPF, mesures Wi-Fi, Python, Docker — nouveautés apportées par le BUT.</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- ══ COMPÉTENCES ═══════════════════════════════════════ -->
 		<section id="competences" class="container">
 			<h2>Compétences BUT RT</h2>
-			<p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem;">
-				Le référentiel national du BUT RT définit trois compétences. Chacune est documentée
-				ci-dessous par ses <em>apprentissages critiques</em>, les <em>situations professionnelles</em>
-				où je les ai mobilisées et une <em>réflexion personnelle</em>.
+			<p style="color:var(--muted);font-size:0.85rem;margin-bottom:0.75rem;">
+				Les trois compétences du référentiel BUT RT, documentées par apprentissages critiques,
+				situations professionnelles et réflexion personnelle.
 			</p>
+			<div class="legend">
+				<div class="legend-item">
+					<span class="ac-origin nouveau" style="margin:0;">Nouveau en BUT</span>
+					<span>Découvert à l'IUT</span>
+				</div>
+				<div class="legend-item">
+					<span class="ac-origin renforce" style="margin:0;">Renforcé en BUT</span>
+					<span>Connu avant, approfondi à l'IUT</span>
+				</div>
+			</div>
 
 			<nav class="comp-nav" aria-label="Navigation compétences">
 				<a href="#c1">C1 — Administrer</a>
@@ -376,7 +256,7 @@
 				<a href="#c3">C3 — Programmer</a>
 			</nav>
 
-			<!-- ─── COMPÉTENCE 1 ───────────────────────────────── -->
+			<!-- C1 -->
 			<div id="c1" class="competence-section">
 				<div class="competence-header">
 					<div class="competence-badge">C1</div>
@@ -384,9 +264,9 @@
 						<h3 class="competence-title">Administrer les réseaux et l'Internet</h3>
 						<p class="competence-subtitle">Compétence 1 — Référentiel BUT RT 2021</p>
 						<div class="level-bar">
-							<span>Niveau atteint</span>
-							<div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
-							<span>Année 1 / 3</span>
+							<span>Niveau</span>
+							<div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+							<span>Solide — base pré-BUT + ACL &amp; OSPF acquis en IUT</span>
 						</div>
 					</div>
 				</div>
@@ -398,140 +278,126 @@
 					<button class="tab-btn" onclick="switchTab(this,'c1-ref')">Réflexion</button>
 				</div>
 
-				<!-- AC -->
 				<div id="c1-ac" class="tab-panel active">
 					<div class="ac-grid">
 						<div class="ac-item">
+							<div class="ac-origin renforce">Renforcé en BUT</div>
 							<div class="ac-code">AC11-01</div>
 							<div class="ac-label">Maîtriser les fondamentaux réseau</div>
 							<div class="ac-desc">
-								En TP Réseaux, j'ai étudié et manipulé les couches du modèle OSI et la suite TCP/IP :
-								encapsulation, adressage IPv4/IPv6, sous-réseaux (VLSM). J'ai configuré
-								des interfaces et vérifié la connectivité avec <code>ping</code>, <code>traceroute</code>
-								et <code>Wireshark</code>.
+								Les couches OSI, TCP/IP, l'adressage IPv4 et le sous-réseautage faisaient
+								déjà partie de ma formation Bac Pro. En BUT, j'ai consolidé ces bases par
+								une approche plus rigoureuse, notamment via l'analyse de trames avec
+								Wireshark pour visualiser concrètement l'encapsulation.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>📄</span> Rapport TP OSI/TCP-IP</div>
-								<div class="proof-badge"><span>🖥️</span> Capture Wireshark</div>
+								<div class="proof-badge"><span>🖥️</span> Captures Wireshark TP</div>
 							</div>
 						</div>
 						<div class="ac-item">
+							<div class="ac-origin renforce">Renforcé en BUT</div>
 							<div class="ac-code">AC11-02</div>
-							<div class="ac-label">Configurer les équipements actifs</div>
+							<div class="ac-label">Configurer les équipements actifs (VLANs, routage statique)</div>
 							<div class="ac-desc">
-								En TD/TP sur Packet Tracer et GNS3, j'ai configuré des routeurs Cisco (IOS) :
-								interfaces, routes statiques et dynamiques (OSPF basique), listes de contrôle
-								d'accès (ACL). J'ai également paramétré des switchs managés (trunk, access, STP).
+								La configuration de switchs (VLANs, ports trunk/access) et le routage statique,
+								je les pratiquais déjà en stage et en CDD sur des équipements réels.
+								Le BUT a formalisé ces pratiques sur Packet Tracer en y ajoutant
+								une rigueur documentaire (rapport, schéma logique) que je n'avais pas en entreprise.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>📦</span> Fichier Packet Tracer</div>
-								<div class="proof-badge"><span>📄</span> Config IOS exportée</div>
-							</div>
-						</div>
-						<div class="ac-item">
-							<div class="ac-code">AC11-03</div>
-							<div class="ac-label">Mettre en œuvre les VLANs</div>
-							<div class="ac-desc">
-								SAÉ S1 : conception et déploiement d'une topologie multi-VLAN pour une entreprise simulée.
-								Création des VLANs, affectation des ports, configuration du routage inter-VLAN via
-								une interface virtuelle (SVI) et vérification de l'isolation.
-							</div>
-							<div class="proof-row">
-								<div class="proof-badge"><span>📊</span> Topologie réseau (PNG)</div>
+								<div class="proof-badge"><span>📦</span> Fichier Packet Tracer SAÉ</div>
 								<div class="proof-badge"><span>📄</span> Rapport SAÉ S1</div>
 							</div>
 						</div>
 						<div class="ac-item">
-							<div class="ac-code">AC11-04</div>
-							<div class="ac-label">Utiliser des outils de supervision</div>
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
+							<div class="ac-code">AC11-03</div>
+							<div class="ac-label">Mettre en œuvre des listes de contrôle d'accès (ACL)</div>
 							<div class="ac-desc">
-								En TP, déploiement d'un agent SNMP sur une VM Linux et consultation via un
-								gestionnaire de réseau (MIB Browser). Prise en main de la supervision basique
-								avec des alertes sur la disponibilité d'hôtes (ping continu, syslog).
+								Les ACLs sont l'apprentissage vraiment nouveau de cette compétence.
+								En TP Packet Tracer, j'ai configuré des ACL standard (filtrage par IP source)
+								et étendues (IP source/destination + protocole + port), puis vérifié leur
+								effet sur le trafic autorisé ou bloqué. Première fois que je manipulais
+								du filtrage de trafic au niveau d'un routeur.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>🖥️</span> Capture supervision</div>
+								<div class="proof-badge"><span>📦</span> Fichier PT avec ACL</div>
+								<div class="proof-badge"><span>📄</span> Compte-rendu TP ACL</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
+							<div class="ac-code">AC11-04</div>
+							<div class="ac-label">Mettre en œuvre le routage dynamique (OSPF)</div>
+							<div class="ac-desc">
+								OSPF est également nouveau — en stage et CDD, le routage dynamique était
+								géré par des personnes plus expérimentées. En TP, j'ai configuré OSPF
+								sur plusieurs routeurs Cisco IOS dans une topologie multi-sites,
+								observé la convergence et interprété la table de routage résultante.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Topologie PT multi-sites</div>
+								<div class="proof-badge"><span>📄</span> Compte-rendu TP OSPF</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Situations -->
 				<div id="c1-sit" class="tab-panel">
 					<div class="situation-card">
-						<h4>CDD — Service informatique d'entreprise</h4>
+						<h4>CDD — Administration réseau quotidienne</h4>
 						<p>
-							Durant mon CDD, j'ai participé à l'administration quotidienne du réseau local :
-							remplacement d'un switch défaillant, reconfiguration des ports et vérification
-							des VLANs associés aux services (voix / données). J'ai utilisé l'interface web
-							de gestion du switch et documenté les changements dans le tableau de bord interne.
+							Intervention sur le réseau local : remplacement d'un switch, vérification des VLANs
+							par service (voix / données), tests de connectivité. Une situation que je maîtrisais
+							bien grâce à mes stages — j'ai pu être autonome rapidement.
 						</p>
-						<div>
-							<span class="tag">VLAN</span>
-							<span class="tag">Switch managé</span>
-							<span class="tag">Documentation réseau</span>
-						</div>
-					</div>
-					<div class="situation-card">
-						<h4>Stage 2 — Assistance réseau PME</h4>
-						<p>
-							Intervention sur un réseau plat non segmenté : proposition et esquisse d'un plan
-							de segmentation VLAN pour isoler les postes administratifs des machines de
-							production. Réalisation d'un schéma réseau logique et physique soumis au
-							responsable informatique.
-						</p>
-						<div>
-							<span class="tag">Audit réseau</span>
-							<span class="tag">Schéma logique</span>
-							<span class="tag">Recommandation</span>
-						</div>
+						<div><span class="tag">VLANs</span><span class="tag">Switch managé</span><span class="tag">Environnement réel</span></div>
 					</div>
 					<div class="situation-card">
 						<h4>SAÉ S1 — Topologie réseau simulée (IUT)</h4>
 						<p>
-							En binôme, conception d'une infrastructure multi-sites sur Packet Tracer :
-							adressage VLSM, VLANs, routage OSPF entre deux sites, filtrage par ACL.
-							Présentation orale et remise d'un rapport technique évalué par les enseignants.
+							En binôme sur Packet Tracer : infrastructure d'entreprise avec adressage VLSM,
+							VLANs, routage OSPF entre deux sites et filtrage ACL. Première fois que je combinais
+							des notions connues (VLANs) avec des notions nouvelles (OSPF, ACL) dans un projet complet.
+							Rapport technique et présentation orale.
 						</p>
-						<div>
-							<span class="tag">Packet Tracer</span>
-							<span class="tag">OSPF</span>
-							<span class="tag">ACL</span>
-							<span class="tag">VLSM</span>
-						</div>
+						<div><span class="tag">Packet Tracer</span><span class="tag">OSPF</span><span class="tag">ACL</span><span class="tag">VLSM</span></div>
 					</div>
 				</div>
 
-				<!-- Composantes essentielles -->
 				<div id="c1-ce" class="tab-panel">
 					<ul class="ce-list">
 						<li>En respectant les principes fondamentaux des architectures réseau (couches, protocoles, adressage)</li>
-						<li>En tenant compte des contraintes de sécurité (segmentation, filtrage ACL, politique d'accès)</li>
-						<li>En documentant les configurations et les topologies pour assurer la maintenabilité</li>
-						<li>En utilisant des outils de simulation et des équipements réels ou virtuels pour valider les configurations</li>
-						<li>En adoptant une démarche méthodique de diagnostic et de dépannage (ping, traceroute, logs)</li>
+						<li>En tenant compte des contraintes de sécurité — notamment via le filtrage ACL pour contrôler les flux</li>
+						<li>En documentant les configurations et topologies pour assurer la maintenabilité</li>
+						<li>En utilisant des outils de simulation (Packet Tracer) pour valider les configurations</li>
+						<li>En adoptant une démarche méthodique de diagnostic (ping, traceroute, show ip route, show access-lists)</li>
 					</ul>
 				</div>
 
-				<!-- Réflexion -->
 				<div id="c1-ref" class="tab-panel">
 					<div class="reflexion-block">
-						<strong>Ce que cette compétence m'a apporté :</strong><br><br>
-						Avant le BUT, je savais brancher des câbles et configurer une IP statique, mais je ne
-						comprenais pas vraiment <em>pourquoi</em> les VLANs existent ni comment le routage
-						inter-VLAN fonctionne au niveau logiciel. Les TP sur Packet Tracer et les SAÉ
-						m'ont forcé à raisonner sur la topologie dans sa globalité, pas seulement poste à poste.<br><br>
-						Mon CDD m'a confronté à un vrai réseau en production, où chaque erreur de configuration
-						peut couper des services. J'ai appris que <strong>la documentation est aussi importante
-						que la configuration elle-même</strong> — une leçon que je n'avais pas totalement
-						intégrée en stage.<br><br>
-						Piste de progression : approfondir la sécurité (pare-feu, DMZ, VPN site-à-site) et
-						explorer la supervision avancée (Zabbix, Grafana) que nous aborderons en S2/S3.
+						<strong>Ce que je savais avant, ce que le BUT m'a vraiment apporté :</strong><br><br>
+						Avant le BUT, les VLANs et la configuration de switchs faisaient partie de mon quotidien
+						en stage et en CDD. Je n'avais pas de lacune à ce niveau — j'intervenais sur des
+						équipements réels avec une bonne autonomie.<br><br>
+						Ce que le BUT m'a vraiment apporté, c'est d'abord les <strong>ACLs</strong>. Je savais
+						que le filtrage réseau existait, mais je ne l'avais jamais configuré moi-même.
+						Comprendre la logique de traitement (lecture séquentielle des règles, deny implicite
+						final) m'a donné une vision beaucoup plus précise de ce que fait réellement un routeur
+						sur le trafic — et m'a fait comprendre pourquoi certaines communications échouaient
+						sans raison apparente dans mes anciens environnements de stage.<br><br>
+						<strong>OSPF</strong> a aussi été une vraie découverte : en entreprise, le routage
+						dynamique était géré par des gens plus expérimentés. Comprendre comment les routeurs
+						échangent leurs routes et convergent automatiquement m'a aidé à comprendre des
+						comportements réseau que j'observais sans pouvoir les expliquer avant.<br><br>
+						Ce que je veux approfondir : la sécurité réseau plus avancée (pare-feu étatique, DMZ)
+						et la supervision (Zabbix) que j'aborderai en S2/S3.
 					</div>
 				</div>
-			</div><!-- /C1 -->
+			</div>
 
-			<!-- ─── COMPÉTENCE 2 ───────────────────────────────── -->
+			<!-- C2 -->
 			<div id="c2" class="competence-section">
 				<div class="competence-header">
 					<div class="competence-badge">C2</div>
@@ -539,9 +405,9 @@
 						<h3 class="competence-title">Connecter les entreprises et les usagers</h3>
 						<p class="competence-subtitle">Compétence 2 — Référentiel BUT RT 2021</p>
 						<div class="level-bar">
-							<span>Niveau atteint</span>
-							<div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
-							<span>Année 1 / 3</span>
+							<span>Niveau</span>
+							<div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+							<span>Bonne base pré-BUT + mesures Wi-Fi acquises en IUT</span>
 						</div>
 					</div>
 				</div>
@@ -556,53 +422,62 @@
 				<div id="c2-ac" class="tab-panel active">
 					<div class="ac-grid">
 						<div class="ac-item">
+							<div class="ac-origin renforce">Renforcé en BUT</div>
 							<div class="ac-code">AC12-01</div>
-							<div class="ac-label">Comprendre les architectures de connectivité</div>
-							<div class="ac-desc">
-								Cours et TD sur les technologies d'accès (xDSL, fibre optique FTTH/FTTB, 4G/5G).
-								Étude du rôle des FAI, des niveaux de peering, et des protocoles BGP à haut niveau.
-								Analyse de cas réels d'architectures opérateurs.
-							</div>
-							<div class="proof-row">
-								<div class="proof-badge"><span>📄</span> Compte-rendu TD opérateurs</div>
-							</div>
-						</div>
-						<div class="ac-item">
-							<div class="ac-code">AC12-02</div>
 							<div class="ac-label">Déployer l'infrastructure physique</div>
 							<div class="ac-desc">
-								TP câblage : réalisation de câbles droits et croisés, certification avec un testeur,
-								installation d'une baie de brassage, raccordement de prises RJ45 selon la norme T568B.
-								Rédaction d'un plan de câblage structuré.
+								Le câblage structuré (RJ45, norme T568B, baie de brassage, tests de continuité)
+								était déjà acquis en Bac Pro et pratiqué en stage. En BUT, les TP ont formalisé
+								des gestes que je faisais de façon intuitive, en y ajoutant la rigueur
+								des normes et une documentation associée.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>📸</span> Photos baie brassage</div>
-								<div class="proof-badge"><span>📄</span> Plan câblage</div>
+								<div class="proof-badge"><span>📸</span> Photos TP câblage</div>
+								<div class="proof-badge"><span>📄</span> Plan de câblage</div>
 							</div>
 						</div>
 						<div class="ac-item">
-							<div class="ac-code">AC12-03</div>
-							<div class="ac-label">Configurer l'accès Internet d'un site</div>
+							<div class="ac-origin renforce">Renforcé en BUT</div>
+							<div class="ac-code">AC12-02</div>
+							<div class="ac-label">Configurer l'accès Internet (NAT/PAT, SSH)</div>
 							<div class="ac-desc">
-								En TP, configuration du NAT/PAT sur un routeur Cisco pour permettre à un réseau
-								local privé d'accéder à Internet. Mise en place d'une translation statique pour
-								un serveur exposé et test de la connectivité depuis l'extérieur simulé.
+								Le NAT/PAT et SSH (y compris l'authentification par clé) faisaient partie
+								de mes pratiques en stage et CDD. En BUT, ces notions ont été abordées avec
+								une compréhension théorique plus solide du fonctionnement interne — pourquoi
+								le NAT traduit les adresses, pas seulement comment le configurer.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>📦</span> Fichier GNS3 / PT</div>
 								<div class="proof-badge"><span>📄</span> Rapport TP NAT</div>
 							</div>
 						</div>
 						<div class="ac-item">
-							<div class="ac-code">AC12-04</div>
-							<div class="ac-label">Sécuriser les accès distants</div>
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
+							<div class="ac-code">AC12-03</div>
+							<div class="ac-label">Réaliser des mesures et cartes de couverture Wi-Fi</div>
 							<div class="ac-desc">
-								Configuration SSH sur des équipements Cisco et des serveurs Linux. Désactivation
-								de Telnet, gestion des clés, restriction par ACL sur les lignes VTY.
-								Introduction aux tunnels VPN (OpenVPN, WireGuard) en TP système.
+								C'est l'apprentissage vraiment nouveau de cette compétence. En TP, j'ai utilisé
+								un logiciel de mesure pour réaliser des relevés de signal Wi-Fi dans un bâtiment,
+								générer une carte de couverture thermique et analyser les zones de faiblesse
+								(signal faible, interférences entre canaux, rapport signal/bruit).
+								J'ai ensuite proposé des ajustements de positionnement des points d'accès.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>🖥️</span> Config SSH exportée</div>
+								<div class="proof-badge"><span>🗺️</span> Carte de couverture Wi-Fi</div>
+								<div class="proof-badge"><span>📄</span> Rapport mesures TP</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
+							<div class="ac-code">AC12-04</div>
+							<div class="ac-label">Comprendre les technologies d'accès opérateur</div>
+							<div class="ac-desc">
+								Les cours sur les technologies d'accès (xDSL, FTTH, 4G/5G) et l'architecture
+								des opérateurs (FAI, peering, transit) m'ont donné une vision que je n'avais
+								pas : avant le BUT, Internet commençait pour moi à la box ou au routeur de
+								bordure — je ne savais pas ce qui se passait au-delà.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📄</span> Compte-rendu TD opérateurs</div>
 							</div>
 						</div>
 					</div>
@@ -612,74 +487,67 @@
 					<div class="situation-card">
 						<h4>Stage 1 — Installation réseau sur site</h4>
 						<p>
-							Participation au déploiement d'un nouveau site : passage de câbles en chemin de câbles,
-							raccordement des prises murales, tests de continuité, étiquetage de la baie de brassage.
-							Le réseau a été mis en service dans les délais prévus, ce qui m'a appris l'importance
-							de la méthode et de la rigueur dans le câblage structuré.
+							Déploiement d'un nouveau site : passage de câbles, raccordement des prises
+							murales, tests de continuité, étiquetage de la baie. Situation maîtrisée —
+							j'ai pu être efficace et autonome dès le premier jour.
 						</p>
-						<div>
-							<span class="tag">Câblage structuré</span>
-							<span class="tag">Baie de brassage</span>
-							<span class="tag">T568B</span>
-						</div>
+						<div><span class="tag">Câblage structuré</span><span class="tag">Baie de brassage</span><span class="tag">Environnement réel</span></div>
 					</div>
 					<div class="situation-card">
-						<h4>CDD — Configuration accès distant (SSH &amp; VPN)</h4>
+						<h4>CDD — Accès distant (NAT, SSH)</h4>
 						<p>
-							Aide à la mise en place d'un accès VPN SSL pour des télétravailleurs : création
-							des comptes, test des tunnels, rédaction d'un guide utilisateur simplifié.
-							J'ai également sécurisé les accès SSH en remplaçant l'authentification par mot de
-							passe par une authentification par clé sur les serveurs Linux.
+							Configuration d'accès distants pour les utilisateurs : NAT sur le routeur, SSH
+							avec clés, guide utilisateur. C'est là que j'ai compris que même une configuration
+							correcte est inutile sans documentation claire — les appels au support
+							provenaient du manque d'explication, pas de problèmes techniques.
 						</p>
-						<div>
-							<span class="tag">VPN SSL</span>
-							<span class="tag">SSH clé publique</span>
-							<span class="tag">Documentation utilisateur</span>
-						</div>
+						<div><span class="tag">NAT</span><span class="tag">SSH</span><span class="tag">Documentation</span></div>
 					</div>
 					<div class="situation-card">
-						<h4>SAÉ S2 — Connexion d'un site à Internet (IUT)</h4>
+						<h4>TP IUT — Mesures de couverture Wi-Fi</h4>
 						<p>
-							Déploiement d'une infrastructure complète sur VM : routeur NAT, serveur DHCP,
-							pare-feu iptables, point d'accès Wi-Fi simulé. Test de la connectivité globale
-							et rédaction d'un rapport documentant les choix techniques et les tests de validation.
+							Relevé de signal dans les locaux de l'IUT, génération d'une carte thermique,
+							identification des zones mortes et des sources d'interférences entre canaux.
+							Première fois que j'abordais le Wi-Fi sous l'angle de la mesure et de la
+							validation, plutôt que de la simple configuration d'un point d'accès.
 						</p>
-						<div>
-							<span class="tag">NAT/PAT</span>
-							<span class="tag">DHCP</span>
-							<span class="tag">iptables</span>
-							<span class="tag">VM VirtualBox</span>
-						</div>
+						<div><span class="tag">Mesures Wi-Fi</span><span class="tag">Carte couverture</span><span class="tag">Analyse signal</span></div>
 					</div>
 				</div>
 
 				<div id="c2-ce" class="tab-panel">
 					<ul class="ce-list">
-						<li>En respectant les normes de câblage en vigueur (EN 50173, T568B) pour garantir la fiabilité physique</li>
-						<li>En choisissant les technologies d'accès adaptées aux besoins et contraintes du site (débit, coût, disponibilité)</li>
-						<li>En sécurisant les accès distants par des protocoles robustes (SSH, VPN) et une gestion des droits stricte</li>
-						<li>En documentant les installations pour faciliter les interventions futures et la maintenance</li>
-						<li>En tenant compte de l'expérience utilisateur final (guide, formation) lors du déploiement de solutions</li>
+						<li>En respectant les normes de câblage (T568B) pour garantir la fiabilité physique de l'infrastructure</li>
+						<li>En validant les déploiements sans fil par des mesures terrain — et pas seulement par configuration</li>
+						<li>En sécurisant les accès distants par des protocoles robustes (SSH à clé, NAT restrictif)</li>
+						<li>En documentant les installations pour faciliter la maintenance et l'usage par les non-techniciens</li>
+						<li>En comprenant l'architecture réseau dans sa globalité, du LAN jusqu'à l'accès opérateur</li>
 					</ul>
 				</div>
 
 				<div id="c2-ref" class="tab-panel">
 					<div class="reflexion-block">
-						<strong>Ce que cette compétence m'a apporté :</strong><br><br>
-						Mon stage de câblage m'a donné une perception très concrète de ce que représente
-						l'infrastructure physique : la rigueur du câblage structuré est la fondation invisible
-						sur laquelle repose toute la couche logicielle. Une prise mal raccordée peut rendre
-						une configuration réseau irréprouvable totalement inefficace.<br><br>
-						En TP NAT et SSH, j'ai réalisé que <strong>connecter n'est pas seulement ouvrir un
-						accès, c'est aussi le sécuriser</strong>. Le concept du "principe de moindre privilège"
-						(n'ouvrir que ce qui est strictement nécessaire) est devenu une réflexe de pensée.<br><br>
-						Ce que je veux approfondir : les technologies WAN modernes (SD-WAN, MPLS) et la
-						mobilité (Wi-Fi 6, 5G pour les entreprises), que nous aborderons en parcours.
+						<strong>Ce que je savais avant, ce que le BUT m'a vraiment apporté :</strong><br><br>
+						C2 est la compétence où j'avais le plus de bagage avant d'arriver en BUT. Le câblage,
+						le NAT, SSH — c'est du quotidien pratiqué en stage et en CDD. Arriver à l'IUT
+						avec cette expérience m'a permis d'être à l'aise sur les TP dès le début et de
+						me concentrer sur ce qui était vraiment nouveau pour moi.<br><br>
+						Ce que le BUT m'a vraiment apporté ici, c'est la <strong>mesure Wi-Fi</strong>.
+						Je savais configurer un point d'accès, mais je n'avais jamais pensé à <em>mesurer</em>
+						et <em>valider</em> la couverture. Générer une carte thermique, identifier les zones
+						mortes, comprendre les interférences entre canaux — c'est une approche méthodique
+						que je ne connaissais pas. Elle m'a appris qu'un déploiement Wi-Fi sans mesure
+						de validation est un déploiement fait à moitié.<br><br>
+						Les cours sur les technologies opérateurs m'ont aussi donné une vision que je
+						n'avais pas : avant, Internet commençait à la box. Maintenant je comprends ce
+						qui se passe derrière — FAI, peering, transit, backbone.<br><br>
+						Ce que je veux approfondir : les protocoles Wi-Fi avancés (Wi-Fi 6, roaming) et
+						la qualité de service (QoS) pour la voix et la vidéo.
 					</div>
 				</div>
-			</div><!-- /C2 -->
+			</div>
 
-			<!-- ─── COMPÉTENCE 3 ───────────────────────────────── -->
+			<!-- C3 -->
 			<div id="c3" class="competence-section">
 				<div class="competence-header">
 					<div class="competence-badge">C3</div>
@@ -687,9 +555,9 @@
 						<h3 class="competence-title">Créer des outils et applications pour les R&T</h3>
 						<p class="competence-subtitle">Compétence 3 — Référentiel BUT RT 2021</p>
 						<div class="level-bar">
-							<span>Niveau atteint</span>
-							<div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
-							<span>Année 1 / 3</span>
+							<span>Niveau</span>
+							<div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
+							<span>Compétence majoritairement nouvelle — en progression active</span>
 						</div>
 					</div>
 				</div>
@@ -704,57 +572,62 @@
 				<div id="c3-ac" class="tab-panel active">
 					<div class="ac-grid">
 						<div class="ac-item">
+							<div class="ac-origin renforce">Renforcé en BUT</div>
 							<div class="ac-code">AC13-01</div>
-							<div class="ac-label">Utiliser un environnement de développement</div>
+							<div class="ac-label">Utiliser un environnement de développement et des VMs</div>
 							<div class="ac-desc">
-								Prise en main de VS Code, Git et GitHub : création d'un dépôt, commits,
-								branches et pull requests. Utilisation de l'interpréteur Python en mode
-								interactif et en script. Exécution de scripts Bash dans un terminal Linux.
+								Les machines virtuelles (VirtualBox) étaient déjà un outil que j'utilisais
+								avant le BUT — pour tester des configurations réseau et isoler des environnements.
+								En BUT, j'ai ajouté la pratique de VS Code et de Git pour versionner mes
+								scripts, ce que je ne faisais absolument pas avant.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>🔗</span> Dépôt GitHub</div>
-								<div class="proof-badge"><span>📄</span> Historique commits</div>
+								<div class="proof-badge"><span>🔗</span> Dépôt Git TP</div>
 							</div>
 						</div>
 						<div class="ac-item">
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
 							<div class="ac-code">AC13-02</div>
-							<div class="ac-label">Écrire et modifier des programmes</div>
+							<div class="ac-label">Écrire des scripts Python (fichiers, os, subprocess)</div>
 							<div class="ac-desc">
-								TP Python : structures conditionnelles, boucles, fonctions, manipulation de
-								fichiers, modules <code>os</code>, <code>subprocess</code>, <code>socket</code>.
-								Débogage avec <code>print</code> et le debugger intégré de VS Code.
-								Correction d'algorithmes fournis présentant des erreurs logiques.
+								Python est la grande nouveauté de cette compétence. Je connaissais HTML/CSS
+								mais pas la programmation algorithmique. En TP IUT, j'ai appris à manipuler
+								des fichiers, utiliser les modules <code>os</code> et <code>subprocess</code>
+								pour interagir avec le système Linux depuis un script, et structurer un
+								programme lisible. C'est un apprentissage qui continue.
 							</div>
 							<div class="proof-row">
 								<div class="proof-badge"><span>📦</span> Scripts Python TP</div>
+								<div class="proof-badge"><span>📄</span> Compte-rendu TP Python</div>
 							</div>
 						</div>
 						<div class="ac-item">
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
 							<div class="ac-code">AC13-03</div>
-							<div class="ac-label">Automatiser des tâches système</div>
-							<div class="ac-desc">
-								Écriture de scripts Bash pour automatiser : sauvegarde incrémentale avec
-								<code>rsync</code>, rotation de logs, vérification de la disponibilité
-								des services (<code>systemctl is-active</code>), alertes par email via
-								<code>sendmail</code>. Planification avec <code>cron</code>.
-							</div>
-							<div class="proof-row">
-								<div class="proof-badge"><span>📦</span> Script backup.sh</div>
-								<div class="proof-badge"><span>📄</span> Rapport automatisation</div>
-							</div>
-						</div>
-						<div class="ac-item">
-							<div class="ac-code">AC13-04</div>
 							<div class="ac-label">Déployer des services avec Docker</div>
 							<div class="ac-desc">
-								Introduction aux conteneurs : écriture d'un <code>Dockerfile</code>,
-								gestion d'images et de conteneurs (<code>docker run</code>, <code>docker-compose</code>).
-								Déploiement d'un serveur web Nginx et d'une base de données MariaDB
-								dans des conteneurs liés par un réseau Docker.
+								Docker est entièrement nouveau — découvert en IUT. J'ai appris à écrire un
+								<code>Dockerfile</code>, construire une image, lancer un conteneur et
+								déployer un service simple. La notion d'isolation légère par rapport à
+								une VM a changé ma façon de penser le déploiement d'environnements.
 							</div>
 							<div class="proof-row">
-								<div class="proof-badge"><span>📦</span> Dockerfile + compose.yml</div>
-								<div class="proof-badge"><span>🖥️</span> Capture Docker Desktop</div>
+								<div class="proof-badge"><span>📦</span> Dockerfile TP</div>
+								<div class="proof-badge"><span>📄</span> Rapport TP Docker</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-origin nouveau">Nouveau en BUT</div>
+							<div class="ac-code">AC13-04</div>
+							<div class="ac-label">Automatiser des tâches système (Bash)</div>
+							<div class="ac-desc">
+								Le scripting Bash a été abordé en TP : variables, conditions, boucles,
+								appels système. Mon niveau reste débutant sur Bash, mais j'ai compris son
+								utilité pour automatiser des tâches répétitives sur Linux. Je m'y entraîne
+								en dehors des cours pour progresser.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Scripts Bash TP</div>
 							</div>
 						</div>
 					</div>
@@ -762,129 +635,98 @@
 
 				<div id="c3-sit" class="tab-panel">
 					<div class="situation-card">
-						<h4>CDD — Script d'inventaire automatique du parc</h4>
+						<h4>TP IUT — Scripts Python : fichiers et système</h4>
 						<p>
-							À ma propre initiative, j'ai proposé et développé un script Python qui interroge
-							l'API WMI sur les postes Windows pour collecter nom de machine, adresse IP,
-							version OS et espace disque, puis exporte le résultat en CSV. Ce script a
-							été intégré dans la routine hebdomadaire du service et a économisé environ
-							2 h de saisie manuelle par semaine.
+							Écriture de scripts Python utilisant <code>os</code> et <code>subprocess</code>
+							pour interagir avec le système de fichiers Linux et lancer des commandes système
+							depuis Python. Ces TP ont été mon vrai point d'entrée dans la programmation —
+							avant, je n'avais jamais écrit de code structuré hors HTML/CSS.
 						</p>
-						<div>
-							<span class="tag">Python</span>
-							<span class="tag">WMI / PowerShell</span>
-							<span class="tag">CSV export</span>
-							<span class="tag">Initiative personnelle</span>
-						</div>
+						<div><span class="tag">Python</span><span class="tag">os</span><span class="tag">subprocess</span><span class="tag">Linux</span></div>
 					</div>
 					<div class="situation-card">
-						<h4>Stage 3 — Script de sauvegarde Bash</h4>
+						<h4>TP IUT — Déploiement d'un service avec Docker</h4>
 						<p>
-							Développement d'un script Bash planifié par cron pour sauvegarder les dossiers
-							partagés d'un serveur Samba vers un NAS. Gestion de la rotation des archives
-							(conservation des 7 derniers jours), envoi d'un rapport par mail.
-							Le responsable a intégré ce script dans la politique de sauvegarde officielle.
+							Écriture d'un Dockerfile, construction de l'image, lancement du conteneur et
+							vérification du service. Comparaison directe avec une VM : même isolation,
+							démarrage en secondes au lieu de minutes, empreinte bien plus légère.
+							Cette différence m'a convaincu de l'intérêt des conteneurs.
 						</p>
-						<div>
-							<span class="tag">Bash</span>
-							<span class="tag">rsync</span>
-							<span class="tag">cron</span>
-							<span class="tag">Samba</span>
-						</div>
+						<div><span class="tag">Docker</span><span class="tag">Dockerfile</span><span class="tag">Linux</span></div>
 					</div>
 					<div class="situation-card">
-						<h4>SAÉ S2 — Déploiement de services conteneurisés (IUT)</h4>
+						<h4>Pratique personnelle — HTML/CSS (avant le BUT)</h4>
 						<p>
-							En groupe de 3, déploiement d'une stack web complète (Nginx + PHP + MariaDB)
-							via Docker Compose sur une VM Linux. Mise en place d'un volume persistant
-							pour la base de données, configuration des variables d'environnement,
-							rédaction d'une documentation de déploiement réutilisable.
+							Avant d'entrer en BUT RT, j'avais réalisé ce site portfolio en HTML/CSS —
+							mon seul bagage en "développement" à l'époque. Ce portfolio en est la preuve
+							concrète, et illustre le chemin parcouru depuis : du HTML statique vers Python
+							et Docker grâce au BUT.
 						</p>
-						<div>
-							<span class="tag">Docker Compose</span>
-							<span class="tag">Nginx</span>
-							<span class="tag">MariaDB</span>
-							<span class="tag">Linux</span>
-						</div>
+						<div><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Pratique personnelle</span></div>
 					</div>
 				</div>
 
 				<div id="c3-ce" class="tab-panel">
 					<ul class="ce-list">
-						<li>En adoptant des pratiques de développement professionnelles : versionnement (Git), lisibilité du code, commentaires</li>
-						<li>En répondant à un besoin concret d'automatisation ou d'outillage identifié dans un contexte réseau ou système</li>
-						<li>En choisissant l'outil adapté à la situation (script léger vs conteneur vs application complète)</li>
-						<li>En documentant les outils produits pour permettre leur maintenabilité et leur réutilisation</li>
-						<li>En testant et validant les scripts sur des environnements représentatifs avant mise en production</li>
+						<li>En adoptant une approche structurée de l'écriture de scripts : lisibilité, commentaires, gestion des cas d'erreur</li>
+						<li>En choisissant l'outil adapté à la situation (script Python léger, conteneur Docker, VM)</li>
+						<li>En répondant à un besoin concret d'automatisation ou de déploiement dans un contexte réseau ou système</li>
+						<li>En documentant les outils produits pour permettre leur réutilisation par d'autres</li>
+						<li>En testant les scripts sur des environnements représentatifs avant de les considérer comme fiables</li>
 					</ul>
 				</div>
 
 				<div id="c3-ref" class="tab-panel">
 					<div class="reflexion-block">
-						<strong>Ce que cette compétence m'a apporté :</strong><br><br>
-						C'est la compétence qui m'a le plus surpris dans mon parcours : en Bac Pro, je n'avais
-						jamais écrit une ligne de code. Les premières semaines de TP Python ont été
-						déconcertantes, mais j'ai rapidement réalisé que la programmation est une
-						<strong>façon de penser autant qu'un outil technique</strong>.<br><br>
-						Le script d'inventaire que j'ai développé en CDD est l'exemple qui m'a convaincu :
-						une heure de code bien pensée peut économiser des dizaines d'heures de travail
-						répétitif. Cela a changé ma façon d'aborder les tâches quotidiennes — je me pose
-						maintenant systématiquement la question : <em>est-ce qu'on peut automatiser ça ?</em><br><br>
-						Ce que je veux approfondir : la programmation réseau avec les sockets et les
-						bibliothèques comme <code>Netmiko</code> pour automatiser la configuration
-						d'équipements réseau, et Python/Ansible pour l'infrastructure as code.
+						<strong>Ce que je savais avant, ce que le BUT m'a vraiment apporté :</strong><br><br>
+						C3 est la compétence où j'avais le moins de base en arrivant en BUT. Je connaissais
+						HTML/CSS pour faire des pages web statiques, et j'utilisais des VMs — mais je n'avais
+						jamais vraiment programmé. Pas de Python, pas de Bash, pas de Docker.<br><br>
+						Les TP Python m'ont confronté à une façon de penser que je n'avais pas : décomposer
+						un problème en étapes, écrire des instructions que la machine exécute dans l'ordre.
+						Les modules <code>os</code> et <code>subprocess</code> m'ont montré que Python
+						pouvait interagir directement avec le système Linux — ce qui ouvre la porte à
+						l'<strong>automatisation des tâches réseau</strong>, qui est exactement ce qui
+						m'intéresse dans mon parcours RT.<br><br>
+						Docker a aussi été une révélation. Là où j'attendais plusieurs minutes le démarrage
+						d'une VM, un conteneur est opérationnel en secondes. Cette légèreté change
+						complètement l'approche du déploiement de services — et je comprends maintenant
+						pourquoi c'est devenu un standard dans les environnements professionnels.<br><br>
+						Je suis honnête sur mon niveau actuel : c'est la compétence où j'ai le plus de
+						progression devant moi. Mon objectif est de combiner Python et les bibliothèques
+						réseau (<code>socket</code>, <code>Netmiko</code>) pour automatiser la configuration
+						d'équipements — là où mes compétences C1 et C3 se rejoindraient concrètement.
 					</div>
 				</div>
-			</div><!-- /C3 -->
+			</div>
 
-		</section><!-- /competences -->
+		</section>
 
-		<!-- ══ PROJETS ═══════════════════════════════════════════ -->
 		<section id="projets" class="container projects">
 			<h2>Projets réalisés</h2>
 			<div class="grid">
 				<article class="card">
-					<h3>SAÉ — Topologie réseau multi-VLAN</h3>
-					<p>Conception sur Packet Tracer d'une infrastructure d'entreprise : adressage VLSM,
-					VLANs, routage OSPF inter-sites, filtrage ACL. Rapport technique et présentation orale.</p>
-					<div>
-						<span class="tag">Packet Tracer</span>
-						<span class="tag">OSPF</span>
-						<span class="tag">ACL</span>
-					</div>
+					<h3>SAÉ S1 — Topologie réseau multi-VLAN</h3>
+					<p>Infrastructure d'entreprise sur Packet Tracer : VLSM, VLANs, OSPF inter-sites, filtrage ACL. Premier projet combinant des notions pré-BUT (VLANs) et des notions nouvelles (OSPF, ACL). Rapport technique et présentation orale.</p>
+					<div><span class="tag">Packet Tracer</span><span class="tag">OSPF</span><span class="tag">ACL</span><span class="tag">VLSM</span></div>
 					<p style="margin-top:0.75rem;"><a href="#">Rapport PDF</a></p>
 				</article>
 				<article class="card">
-					<h3>Script Python — Inventaire parc informatique</h3>
-					<p>Script d'inventaire automatique développé en CDD : collecte WMI, export CSV,
-					intégré dans la routine hebdomadaire du service IT. Économie estimée : 2 h/semaine.</p>
-					<div>
-						<span class="tag">Python</span>
-						<span class="tag">WMI</span>
-						<span class="tag">CSV</span>
-					</div>
-					<p style="margin-top:0.75rem;"><a href="#">Voir le code (GitHub)</a></p>
+					<h3>TP — Mesures de couverture Wi-Fi</h3>
+					<p>Relevé terrain dans les locaux de l'IUT, carte thermique de couverture, identification des zones mortes et interférences, recommandations de repositionnement. Première approche du Wi-Fi par la mesure plutôt que la configuration.</p>
+					<div><span class="tag">Mesures Wi-Fi</span><span class="tag">Carte couverture</span><span class="tag">Analyse signal</span></div>
+					<p style="margin-top:0.75rem;"><a href="#">Carte &amp; rapport</a></p>
 				</article>
 				<article class="card">
-					<h3>Script Bash — Sauvegarde automatique</h3>
-					<p>Sauvegarde incrémentale avec <code>rsync</code>, rotation sur 7 jours, rapport par mail.
-					Planifié via <code>cron</code> sur un serveur Linux Debian. Intégré à la politique de sauvegarde.</p>
-					<div>
-						<span class="tag">Bash</span>
-						<span class="tag">rsync</span>
-						<span class="tag">cron</span>
-					</div>
-					<p style="margin-top:0.75rem;"><a href="#">Voir le script</a></p>
+					<h3>TP — Scripts Python (os &amp; subprocess)</h3>
+					<p>Scripts Python pour interagir avec le système de fichiers Linux et lancer des commandes système depuis Python. Premier vrai apprentissage de la programmation — point de départ d'une progression vers l'automatisation réseau.</p>
+					<div><span class="tag">Python</span><span class="tag">os</span><span class="tag">subprocess</span></div>
+					<p style="margin-top:0.75rem;"><a href="#">Voir les scripts</a></p>
 				</article>
 				<article class="card">
-					<h3>SAÉ — Stack web conteneurisée</h3>
-					<p>Déploiement d'un environnement Nginx + PHP + MariaDB via Docker Compose sur VM Linux.
-					Volume persistant, variables d'environnement, documentation de déploiement.</p>
-					<div>
-						<span class="tag">Docker</span>
-						<span class="tag">Nginx</span>
-						<span class="tag">MariaDB</span>
-					</div>
+					<h3>TP — Déploiement Docker</h3>
+					<p>Service web déployé dans un conteneur Docker sur VM Linux. Dockerfile, construction d'image, lancement et test. Découverte de la conteneurisation comme alternative légère et rapide aux VMs traditionnelles.</p>
+					<div><span class="tag">Docker</span><span class="tag">Dockerfile</span><span class="tag">Linux</span></div>
 					<p style="margin-top:0.75rem;"><a href="#">Voir le dépôt</a></p>
 				</article>
 			</div>
@@ -900,12 +742,9 @@
 
 	<script>
 		function switchTab(btn, panelId) {
-			// Trouver la section parente
 			const section = btn.closest('.competence-section');
-			// Désactiver tous les boutons et panneaux de cette section
 			section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 			section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-			// Activer le bon
 			btn.classList.add('active');
 			document.getElementById(panelId).classList.add('active');
 		}
