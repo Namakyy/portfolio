@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Portfolio BUT RT — Roulier Jacques — Compétences et parcours.">
+	<meta name="author" content="Roulier Jacques">
+	<meta name="theme-color" content="#06080a">
+	<title>Portfolio — Roulier Jacques (BUT RT)</title>
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		/* ── Extensions portfolio ── */
+		.competence-section {
+			padding: 3rem 0;
+			border-top: 1px solid rgba(0,200,255,0.07);
+		}
+		.competence-header {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+			margin-bottom: 1.5rem;
+		}
+		.competence-badge {
+			flex-shrink: 0;
+			width: 2.6rem;
+			height: 2.6rem;
+			border: 1px solid rgba(0,199,255,0.3);
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--accent);
+			background: rgba(0,199,255,0.04);
+		}
+		.competence-title {
+			margin: 0;
+			font-size: 1.15rem;
+			color: var(--accent);
+			letter-spacing: 0.04em;
+		}
+		.competence-subtitle {
+			margin: 0.2rem 0 0;
+			font-size: 0.78rem;
+			color: var(--muted);
+		}
+
+		/* Onglets AC / Preuves / Réflexion */
+		.tabs {
+			display: flex;
+			gap: 0.4rem;
+			margin-bottom: 1rem;
+			flex-wrap: wrap;
+		}
+		.tab-btn {
+			background: transparent;
+			border: 1px solid rgba(0,200,255,0.12);
+			color: var(--muted);
+			padding: 0.3rem 0.75rem;
+			border-radius: 5px;
+			cursor: pointer;
+			font-family: inherit;
+			font-size: 0.78rem;
+			transition: color .15s, border-color .15s;
+		}
+		.tab-btn.active, .tab-btn:hover {
+			color: var(--neon);
+			border-color: rgba(0,255,213,0.35);
+		}
+		.tab-panel { display: none; }
+		.tab-panel.active { display: block; }
+
+		/* Apprentissages critiques */
+		.ac-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 0.75rem;
+		}
+		.ac-item {
+			background: var(--glass);
+			border: 1px solid rgba(0,200,255,0.07);
+			border-radius: 7px;
+			padding: 0.9rem 1rem;
+		}
+		.ac-code {
+			font-size: 0.68rem;
+			color: var(--accent);
+			letter-spacing: 0.1em;
+			margin-bottom: 0.3rem;
+		}
+		.ac-label {
+			font-size: 0.82rem;
+			color: var(--neon);
+			font-weight: 600;
+			margin-bottom: 0.4rem;
+		}
+		.ac-desc {
+			font-size: 0.78rem;
+			color: var(--muted);
+			line-height: 1.5;
+		}
+
+		/* Situations professionnelles */
+		.situation-card {
+			border: 1px solid rgba(0,200,255,0.09);
+			border-left: 3px solid var(--accent);
+			border-radius: 0 7px 7px 0;
+			padding: 0.9rem 1.1rem;
+			margin-bottom: 0.75rem;
+			background: var(--glass);
+		}
+		.situation-card h4 {
+			margin: 0 0 0.3rem;
+			font-size: 0.88rem;
+			color: var(--neon);
+		}
+		.situation-card p {
+			margin: 0;
+			font-size: 0.8rem;
+			color: var(--muted);
+			line-height: 1.55;
+		}
+		.tag {
+			display: inline-block;
+			font-size: 0.68rem;
+			padding: 0.15rem 0.5rem;
+			border-radius: 4px;
+			border: 1px solid rgba(0,199,255,0.18);
+			color: var(--accent);
+			margin: 0.3rem 0.2rem 0 0;
+		}
+
+		/* Composantes essentielles */
+		.ce-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.ce-list li {
+			display: flex;
+			gap: 0.6rem;
+			align-items: flex-start;
+			padding: 0.5rem 0;
+			border-bottom: 1px solid rgba(0,200,255,0.05);
+			font-size: 0.82rem;
+			color: var(--muted);
+		}
+		.ce-list li::before {
+			content: "›";
+			color: var(--neon);
+			flex-shrink: 0;
+			margin-top: 0.05rem;
+		}
+
+		/* Réflexion */
+		.reflexion-block {
+			background: linear-gradient(135deg, rgba(0,255,213,0.03), rgba(0,199,255,0.02));
+			border: 1px solid rgba(0,255,213,0.1);
+			border-radius: 8px;
+			padding: 1.1rem 1.3rem;
+			font-size: 0.85rem;
+			color: var(--muted);
+			line-height: 1.7;
+		}
+		.reflexion-block strong {
+			color: var(--neon);
+		}
+
+		/* Preuve / illustration badge */
+		.proof-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.6rem;
+			margin-top: 0.6rem;
+		}
+		.proof-badge {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			font-size: 0.75rem;
+			color: var(--muted);
+			border: 1px dashed rgba(0,200,255,0.18);
+			border-radius: 5px;
+			padding: 0.3rem 0.6rem;
+		}
+		.proof-badge span { color: var(--accent); }
+
+		/* Barre de progression compétence */
+		.level-bar {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			margin-top: 0.5rem;
+			font-size: 0.75rem;
+			color: var(--muted);
+		}
+		.bar-track {
+			flex: 1;
+			height: 4px;
+			background: rgba(0,200,255,0.08);
+			border-radius: 4px;
+			overflow: hidden;
+		}
+		.bar-fill {
+			height: 100%;
+			border-radius: 4px;
+			background: linear-gradient(90deg, var(--neon), var(--accent));
+		}
+
+		/* Parcours timeline */
+		.timeline {
+			position: relative;
+			padding-left: 1.5rem;
+		}
+		.timeline::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0.4rem;
+			bottom: 0;
+			width: 1px;
+			background: rgba(0,200,255,0.12);
+		}
+		.tl-item {
+			position: relative;
+			margin-bottom: 1.2rem;
+		}
+		.tl-item::before {
+			content: "";
+			position: absolute;
+			left: -1.85rem;
+			top: 0.45rem;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: var(--accent);
+			box-shadow: 0 0 8px rgba(0,199,255,0.4);
+		}
+		.tl-date {
+			font-size: 0.7rem;
+			color: var(--accent);
+			letter-spacing: 0.08em;
+			margin-bottom: 0.2rem;
+		}
+		.tl-title {
+			font-size: 0.9rem;
+			color: var(--neon);
+			font-weight: 600;
+		}
+		.tl-desc {
+			font-size: 0.8rem;
+			color: var(--muted);
+			margin-top: 0.2rem;
+			line-height: 1.5;
+		}
+
+		/* Nav pills compétences */
+		.comp-nav {
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+			margin-bottom: 2rem;
+		}
+		.comp-nav a {
+			font-size: 0.78rem;
+			padding: 0.35rem 0.8rem;
+			border: 1px solid rgba(0,200,255,0.14);
+			border-radius: 5px;
+			color: var(--muted);
+			text-decoration: none;
+			transition: color .15s, border-color .15s;
+		}
+		.comp-nav a:hover {
+			color: var(--neon);
+			border-color: rgba(0,255,213,0.3);
+		}
+
+		h2 { color: var(--neon); }
+		h3 { color: var(--accent); }
+
+		@media (max-width: 600px) {
+			.ac-grid { grid-template-columns: 1fr; }
+		}
+	</style>
+</head>
+<body class="cyber">
+	<a class="skip-link" href="#main">Aller au contenu</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<h1 class="site-title"><a href="#">Roulier Jacques</a></h1>
+			<nav class="main-nav" aria-label="Navigation principale">
+				<ul>
+					<li><a href="#accueil">Accueil</a></li>
+					<li><a href="#apropos">À propos</a></li>
+					<li><a href="#competences">Compétences</a></li>
+					<li><a href="#projets">Projets</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main" role="main">
+
+		<!-- ══ HERO ══════════════════════════════════════════════ -->
+		<section id="accueil" class="hero">
+			<div class="container">
+				<h2>Étudiant en 1ère année — BUT Réseaux &amp; Télécommunications</h2>
+				<p class="lead">Spécialisation : Administration Réseau &amp; Systèmes, automatisation et programmation.<br>
+				Titulaire d'un <strong>Bac Pro Systèmes Numériques</strong> — 3 stages en entreprise et un CDD au service informatique.</p>
+				<p>
+					<a class="btn" href="#competences">Mes compétences</a>
+					&nbsp;
+					<a class="btn" href="#projets">Mes projets</a>
+				</p>
+			</div>
+		</section>
+
+		<!-- ══ À PROPOS ══════════════════════════════════════════ -->
+		<section id="apropos" class="about container">
+			<h2>À propos</h2>
+			<p>
+				Actuellement en 1ère année de BUT RT à l'IUT, je m'intéresse à l'administration des réseaux, la gestion des systèmes
+				Linux/Windows et l'automatisation des tâches répétitives via le scripting.
+				Mon parcours en <strong>Bac Pro Systèmes Numériques</strong> m'a offert une expérience concrète :
+				trois stages en entreprise et un CDD au sein d'un service informatique, où j'ai pu
+				intervenir sur des infrastructures réelles, configurer des équipements actifs et
+				participer à la maintenance du parc informatique.
+			</p>
+			<p>
+				Ce portfolio atteste de mes trois compétences BUT RT au travers des apprentissages critiques
+				travaillés en TD/TP, des situations professionnelles vécues et des composantes essentielles
+				du référentiel national.
+			</p>
+
+			<h3 style="margin-top:1.5rem;">Parcours</h3>
+			<div class="timeline">
+				<div class="tl-item">
+					<div class="tl-date">2020 – 2023</div>
+					<div class="tl-title">Bac Pro Systèmes Numériques (option RISC)</div>
+					<div class="tl-desc">Formation aux réseaux informatiques, câblage, maintenance matérielle et logicielle.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">Stages × 3 (lycée)</div>
+					<div class="tl-title">Technicien support &amp; réseau en entreprise</div>
+					<div class="tl-desc">Configuration de postes, câblage réseau, dépannage utilisateurs, assistance à l'administration serveur.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">CDD (service informatique)</div>
+					<div class="tl-title">Technicien informatique</div>
+					<div class="tl-desc">Déploiement de postes, inventaire du parc, création de comptes Active Directory, supervision de base.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">2024 – présent</div>
+					<div class="tl-title">BUT Réseaux &amp; Télécommunications — 1ère année</div>
+					<div class="tl-desc">Approfondissement des protocoles réseau, programmation Python/Bash, virtualisation, SAÉ collaboratives.</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ══ COMPÉTENCES ═══════════════════════════════════════ -->
+		<section id="competences" class="container">
+			<h2>Compétences BUT RT</h2>
+			<p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem;">
+				Le référentiel national du BUT RT définit trois compétences. Chacune est documentée
+				ci-dessous par ses <em>apprentissages critiques</em>, les <em>situations professionnelles</em>
+				où je les ai mobilisées et une <em>réflexion personnelle</em>.
+			</p>
+
+			<nav class="comp-nav" aria-label="Navigation compétences">
+				<a href="#c1">C1 — Administrer</a>
+				<a href="#c2">C2 — Connecter</a>
+				<a href="#c3">C3 — Programmer</a>
+			</nav>
+
+			<!-- ─── COMPÉTENCE 1 ───────────────────────────────── -->
+			<div id="c1" class="competence-section">
+				<div class="competence-header">
+					<div class="competence-badge">C1</div>
+					<div>
+						<h3 class="competence-title">Administrer les réseaux et l'Internet</h3>
+						<p class="competence-subtitle">Compétence 1 — Référentiel BUT RT 2021</p>
+						<div class="level-bar">
+							<span>Niveau atteint</span>
+							<div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+							<span>Année 1 / 3</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs">
+					<button class="tab-btn active" onclick="switchTab(this,'c1-ac')">Apprentissages critiques</button>
+					<button class="tab-btn" onclick="switchTab(this,'c1-sit')">Situations professionnelles</button>
+					<button class="tab-btn" onclick="switchTab(this,'c1-ce')">Composantes essentielles</button>
+					<button class="tab-btn" onclick="switchTab(this,'c1-ref')">Réflexion</button>
+				</div>
+
+				<!-- AC -->
+				<div id="c1-ac" class="tab-panel active">
+					<div class="ac-grid">
+						<div class="ac-item">
+							<div class="ac-code">AC11-01</div>
+							<div class="ac-label">Maîtriser les fondamentaux réseau</div>
+							<div class="ac-desc">
+								En TP Réseaux, j'ai étudié et manipulé les couches du modèle OSI et la suite TCP/IP :
+								encapsulation, adressage IPv4/IPv6, sous-réseaux (VLSM). J'ai configuré
+								des interfaces et vérifié la connectivité avec <code>ping</code>, <code>traceroute</code>
+								et <code>Wireshark</code>.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📄</span> Rapport TP OSI/TCP-IP</div>
+								<div class="proof-badge"><span>🖥️</span> Capture Wireshark</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC11-02</div>
+							<div class="ac-label">Configurer les équipements actifs</div>
+							<div class="ac-desc">
+								En TD/TP sur Packet Tracer et GNS3, j'ai configuré des routeurs Cisco (IOS) :
+								interfaces, routes statiques et dynamiques (OSPF basique), listes de contrôle
+								d'accès (ACL). J'ai également paramétré des switchs managés (trunk, access, STP).
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Fichier Packet Tracer</div>
+								<div class="proof-badge"><span>📄</span> Config IOS exportée</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC11-03</div>
+							<div class="ac-label">Mettre en œuvre les VLANs</div>
+							<div class="ac-desc">
+								SAÉ S1 : conception et déploiement d'une topologie multi-VLAN pour une entreprise simulée.
+								Création des VLANs, affectation des ports, configuration du routage inter-VLAN via
+								une interface virtuelle (SVI) et vérification de l'isolation.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📊</span> Topologie réseau (PNG)</div>
+								<div class="proof-badge"><span>📄</span> Rapport SAÉ S1</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC11-04</div>
+							<div class="ac-label">Utiliser des outils de supervision</div>
+							<div class="ac-desc">
+								En TP, déploiement d'un agent SNMP sur une VM Linux et consultation via un
+								gestionnaire de réseau (MIB Browser). Prise en main de la supervision basique
+								avec des alertes sur la disponibilité d'hôtes (ping continu, syslog).
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>🖥️</span> Capture supervision</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Situations -->
+				<div id="c1-sit" class="tab-panel">
+					<div class="situation-card">
+						<h4>CDD — Service informatique d'entreprise</h4>
+						<p>
+							Durant mon CDD, j'ai participé à l'administration quotidienne du réseau local :
+							remplacement d'un switch défaillant, reconfiguration des ports et vérification
+							des VLANs associés aux services (voix / données). J'ai utilisé l'interface web
+							de gestion du switch et documenté les changements dans le tableau de bord interne.
+						</p>
+						<div>
+							<span class="tag">VLAN</span>
+							<span class="tag">Switch managé</span>
+							<span class="tag">Documentation réseau</span>
+						</div>
+					</div>
+					<div class="situation-card">
+						<h4>Stage 2 — Assistance réseau PME</h4>
+						<p>
+							Intervention sur un réseau plat non segmenté : proposition et esquisse d'un plan
+							de segmentation VLAN pour isoler les postes administratifs des machines de
+							production. Réalisation d'un schéma réseau logique et physique soumis au
+							responsable informatique.
+						</p>
+						<div>
+							<span class="tag">Audit réseau</span>
+							<span class="tag">Schéma logique</span>
+							<span class="tag">Recommandation</span>
+						</div>
+					</div>
+					<div class="situation-card">
+						<h4>SAÉ S1 — Topologie réseau simulée (IUT)</h4>
+						<p>
+							En binôme, conception d'une infrastructure multi-sites sur Packet Tracer :
+							adressage VLSM, VLANs, routage OSPF entre deux sites, filtrage par ACL.
+							Présentation orale et remise d'un rapport technique évalué par les enseignants.
+						</p>
+						<div>
+							<span class="tag">Packet Tracer</span>
+							<span class="tag">OSPF</span>
+							<span class="tag">ACL</span>
+							<span class="tag">VLSM</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Composantes essentielles -->
+				<div id="c1-ce" class="tab-panel">
+					<ul class="ce-list">
+						<li>En respectant les principes fondamentaux des architectures réseau (couches, protocoles, adressage)</li>
+						<li>En tenant compte des contraintes de sécurité (segmentation, filtrage ACL, politique d'accès)</li>
+						<li>En documentant les configurations et les topologies pour assurer la maintenabilité</li>
+						<li>En utilisant des outils de simulation et des équipements réels ou virtuels pour valider les configurations</li>
+						<li>En adoptant une démarche méthodique de diagnostic et de dépannage (ping, traceroute, logs)</li>
+					</ul>
+				</div>
+
+				<!-- Réflexion -->
+				<div id="c1-ref" class="tab-panel">
+					<div class="reflexion-block">
+						<strong>Ce que cette compétence m'a apporté :</strong><br><br>
+						Avant le BUT, je savais brancher des câbles et configurer une IP statique, mais je ne
+						comprenais pas vraiment <em>pourquoi</em> les VLANs existent ni comment le routage
+						inter-VLAN fonctionne au niveau logiciel. Les TP sur Packet Tracer et les SAÉ
+						m'ont forcé à raisonner sur la topologie dans sa globalité, pas seulement poste à poste.<br><br>
+						Mon CDD m'a confronté à un vrai réseau en production, où chaque erreur de configuration
+						peut couper des services. J'ai appris que <strong>la documentation est aussi importante
+						que la configuration elle-même</strong> — une leçon que je n'avais pas totalement
+						intégrée en stage.<br><br>
+						Piste de progression : approfondir la sécurité (pare-feu, DMZ, VPN site-à-site) et
+						explorer la supervision avancée (Zabbix, Grafana) que nous aborderons en S2/S3.
+					</div>
+				</div>
+			</div><!-- /C1 -->
+
+			<!-- ─── COMPÉTENCE 2 ───────────────────────────────── -->
+			<div id="c2" class="competence-section">
+				<div class="competence-header">
+					<div class="competence-badge">C2</div>
+					<div>
+						<h3 class="competence-title">Connecter les entreprises et les usagers</h3>
+						<p class="competence-subtitle">Compétence 2 — Référentiel BUT RT 2021</p>
+						<div class="level-bar">
+							<span>Niveau atteint</span>
+							<div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+							<span>Année 1 / 3</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs">
+					<button class="tab-btn active" onclick="switchTab(this,'c2-ac')">Apprentissages critiques</button>
+					<button class="tab-btn" onclick="switchTab(this,'c2-sit')">Situations professionnelles</button>
+					<button class="tab-btn" onclick="switchTab(this,'c2-ce')">Composantes essentielles</button>
+					<button class="tab-btn" onclick="switchTab(this,'c2-ref')">Réflexion</button>
+				</div>
+
+				<div id="c2-ac" class="tab-panel active">
+					<div class="ac-grid">
+						<div class="ac-item">
+							<div class="ac-code">AC12-01</div>
+							<div class="ac-label">Comprendre les architectures de connectivité</div>
+							<div class="ac-desc">
+								Cours et TD sur les technologies d'accès (xDSL, fibre optique FTTH/FTTB, 4G/5G).
+								Étude du rôle des FAI, des niveaux de peering, et des protocoles BGP à haut niveau.
+								Analyse de cas réels d'architectures opérateurs.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📄</span> Compte-rendu TD opérateurs</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC12-02</div>
+							<div class="ac-label">Déployer l'infrastructure physique</div>
+							<div class="ac-desc">
+								TP câblage : réalisation de câbles droits et croisés, certification avec un testeur,
+								installation d'une baie de brassage, raccordement de prises RJ45 selon la norme T568B.
+								Rédaction d'un plan de câblage structuré.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📸</span> Photos baie brassage</div>
+								<div class="proof-badge"><span>📄</span> Plan câblage</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC12-03</div>
+							<div class="ac-label">Configurer l'accès Internet d'un site</div>
+							<div class="ac-desc">
+								En TP, configuration du NAT/PAT sur un routeur Cisco pour permettre à un réseau
+								local privé d'accéder à Internet. Mise en place d'une translation statique pour
+								un serveur exposé et test de la connectivité depuis l'extérieur simulé.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Fichier GNS3 / PT</div>
+								<div class="proof-badge"><span>📄</span> Rapport TP NAT</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC12-04</div>
+							<div class="ac-label">Sécuriser les accès distants</div>
+							<div class="ac-desc">
+								Configuration SSH sur des équipements Cisco et des serveurs Linux. Désactivation
+								de Telnet, gestion des clés, restriction par ACL sur les lignes VTY.
+								Introduction aux tunnels VPN (OpenVPN, WireGuard) en TP système.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>🖥️</span> Config SSH exportée</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="c2-sit" class="tab-panel">
+					<div class="situation-card">
+						<h4>Stage 1 — Installation réseau sur site</h4>
+						<p>
+							Participation au déploiement d'un nouveau site : passage de câbles en chemin de câbles,
+							raccordement des prises murales, tests de continuité, étiquetage de la baie de brassage.
+							Le réseau a été mis en service dans les délais prévus, ce qui m'a appris l'importance
+							de la méthode et de la rigueur dans le câblage structuré.
+						</p>
+						<div>
+							<span class="tag">Câblage structuré</span>
+							<span class="tag">Baie de brassage</span>
+							<span class="tag">T568B</span>
+						</div>
+					</div>
+					<div class="situation-card">
+						<h4>CDD — Configuration accès distant (SSH &amp; VPN)</h4>
+						<p>
+							Aide à la mise en place d'un accès VPN SSL pour des télétravailleurs : création
+							des comptes, test des tunnels, rédaction d'un guide utilisateur simplifié.
+							J'ai également sécurisé les accès SSH en remplaçant l'authentification par mot de
+							passe par une authentification par clé sur les serveurs Linux.
+						</p>
+						<div>
+							<span class="tag">VPN SSL</span>
+							<span class="tag">SSH clé publique</span>
+							<span class="tag">Documentation utilisateur</span>
+						</div>
+					</div>
+					<div class="situation-card">
+						<h4>SAÉ S2 — Connexion d'un site à Internet (IUT)</h4>
+						<p>
+							Déploiement d'une infrastructure complète sur VM : routeur NAT, serveur DHCP,
+							pare-feu iptables, point d'accès Wi-Fi simulé. Test de la connectivité globale
+							et rédaction d'un rapport documentant les choix techniques et les tests de validation.
+						</p>
+						<div>
+							<span class="tag">NAT/PAT</span>
+							<span class="tag">DHCP</span>
+							<span class="tag">iptables</span>
+							<span class="tag">VM VirtualBox</span>
+						</div>
+					</div>
+				</div>
+
+				<div id="c2-ce" class="tab-panel">
+					<ul class="ce-list">
+						<li>En respectant les normes de câblage en vigueur (EN 50173, T568B) pour garantir la fiabilité physique</li>
+						<li>En choisissant les technologies d'accès adaptées aux besoins et contraintes du site (débit, coût, disponibilité)</li>
+						<li>En sécurisant les accès distants par des protocoles robustes (SSH, VPN) et une gestion des droits stricte</li>
+						<li>En documentant les installations pour faciliter les interventions futures et la maintenance</li>
+						<li>En tenant compte de l'expérience utilisateur final (guide, formation) lors du déploiement de solutions</li>
+					</ul>
+				</div>
+
+				<div id="c2-ref" class="tab-panel">
+					<div class="reflexion-block">
+						<strong>Ce que cette compétence m'a apporté :</strong><br><br>
+						Mon stage de câblage m'a donné une perception très concrète de ce que représente
+						l'infrastructure physique : la rigueur du câblage structuré est la fondation invisible
+						sur laquelle repose toute la couche logicielle. Une prise mal raccordée peut rendre
+						une configuration réseau irréprouvable totalement inefficace.<br><br>
+						En TP NAT et SSH, j'ai réalisé que <strong>connecter n'est pas seulement ouvrir un
+						accès, c'est aussi le sécuriser</strong>. Le concept du "principe de moindre privilège"
+						(n'ouvrir que ce qui est strictement nécessaire) est devenu une réflexe de pensée.<br><br>
+						Ce que je veux approfondir : les technologies WAN modernes (SD-WAN, MPLS) et la
+						mobilité (Wi-Fi 6, 5G pour les entreprises), que nous aborderons en parcours.
+					</div>
+				</div>
+			</div><!-- /C2 -->
+
+			<!-- ─── COMPÉTENCE 3 ───────────────────────────────── -->
+			<div id="c3" class="competence-section">
+				<div class="competence-header">
+					<div class="competence-badge">C3</div>
+					<div>
+						<h3 class="competence-title">Créer des outils et applications pour les R&T</h3>
+						<p class="competence-subtitle">Compétence 3 — Référentiel BUT RT 2021</p>
+						<div class="level-bar">
+							<span>Niveau atteint</span>
+							<div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+							<span>Année 1 / 3</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs">
+					<button class="tab-btn active" onclick="switchTab(this,'c3-ac')">Apprentissages critiques</button>
+					<button class="tab-btn" onclick="switchTab(this,'c3-sit')">Situations professionnelles</button>
+					<button class="tab-btn" onclick="switchTab(this,'c3-ce')">Composantes essentielles</button>
+					<button class="tab-btn" onclick="switchTab(this,'c3-ref')">Réflexion</button>
+				</div>
+
+				<div id="c3-ac" class="tab-panel active">
+					<div class="ac-grid">
+						<div class="ac-item">
+							<div class="ac-code">AC13-01</div>
+							<div class="ac-label">Utiliser un environnement de développement</div>
+							<div class="ac-desc">
+								Prise en main de VS Code, Git et GitHub : création d'un dépôt, commits,
+								branches et pull requests. Utilisation de l'interpréteur Python en mode
+								interactif et en script. Exécution de scripts Bash dans un terminal Linux.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>🔗</span> Dépôt GitHub</div>
+								<div class="proof-badge"><span>📄</span> Historique commits</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC13-02</div>
+							<div class="ac-label">Écrire et modifier des programmes</div>
+							<div class="ac-desc">
+								TP Python : structures conditionnelles, boucles, fonctions, manipulation de
+								fichiers, modules <code>os</code>, <code>subprocess</code>, <code>socket</code>.
+								Débogage avec <code>print</code> et le debugger intégré de VS Code.
+								Correction d'algorithmes fournis présentant des erreurs logiques.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Scripts Python TP</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC13-03</div>
+							<div class="ac-label">Automatiser des tâches système</div>
+							<div class="ac-desc">
+								Écriture de scripts Bash pour automatiser : sauvegarde incrémentale avec
+								<code>rsync</code>, rotation de logs, vérification de la disponibilité
+								des services (<code>systemctl is-active</code>), alertes par email via
+								<code>sendmail</code>. Planification avec <code>cron</code>.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Script backup.sh</div>
+								<div class="proof-badge"><span>📄</span> Rapport automatisation</div>
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-code">AC13-04</div>
+							<div class="ac-label">Déployer des services avec Docker</div>
+							<div class="ac-desc">
+								Introduction aux conteneurs : écriture d'un <code>Dockerfile</code>,
+								gestion d'images et de conteneurs (<code>docker run</code>, <code>docker-compose</code>).
+								Déploiement d'un serveur web Nginx et d'une base de données MariaDB
+								dans des conteneurs liés par un réseau Docker.
+							</div>
+							<div class="proof-row">
+								<div class="proof-badge"><span>📦</span> Dockerfile + compose.yml</div>
+								<div class="proof-badge"><span>🖥️</span> Capture Docker Desktop</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="c3-sit" class="tab-panel">
+					<div class="situation-card">
+						<h4>CDD — Script d'inventaire automatique du parc</h4>
+						<p>
+							À ma propre initiative, j'ai proposé et développé un script Python qui interroge
+							l'API WMI sur les postes Windows pour collecter nom de machine, adresse IP,
+							version OS et espace disque, puis exporte le résultat en CSV. Ce script a
+							été intégré dans la routine hebdomadaire du service et a économisé environ
+							2 h de saisie manuelle par semaine.
+						</p>
+						<div>
+							<span class="tag">Python</span>
+							<span class="tag">WMI / PowerShell</span>
+							<span class="tag">CSV export</span>
+							<span class="tag">Initiative personnelle</span>
+						</div>
+					</div>
+					<div class="situation-card">
+						<h4>Stage 3 — Script de sauvegarde Bash</h4>
+						<p>
+							Développement d'un script Bash planifié par cron pour sauvegarder les dossiers
+							partagés d'un serveur Samba vers un NAS. Gestion de la rotation des archives
+							(conservation des 7 derniers jours), envoi d'un rapport par mail.
+							Le responsable a intégré ce script dans la politique de sauvegarde officielle.
+						</p>
+						<div>
+							<span class="tag">Bash</span>
+							<span class="tag">rsync</span>
+							<span class="tag">cron</span>
+							<span class="tag">Samba</span>
+						</div>
+					</div>
+					<div class="situation-card">
+						<h4>SAÉ S2 — Déploiement de services conteneurisés (IUT)</h4>
+						<p>
+							En groupe de 3, déploiement d'une stack web complète (Nginx + PHP + MariaDB)
+							via Docker Compose sur une VM Linux. Mise en place d'un volume persistant
+							pour la base de données, configuration des variables d'environnement,
+							rédaction d'une documentation de déploiement réutilisable.
+						</p>
+						<div>
+							<span class="tag">Docker Compose</span>
+							<span class="tag">Nginx</span>
+							<span class="tag">MariaDB</span>
+							<span class="tag">Linux</span>
+						</div>
+					</div>
+				</div>
+
+				<div id="c3-ce" class="tab-panel">
+					<ul class="ce-list">
+						<li>En adoptant des pratiques de développement professionnelles : versionnement (Git), lisibilité du code, commentaires</li>
+						<li>En répondant à un besoin concret d'automatisation ou d'outillage identifié dans un contexte réseau ou système</li>
+						<li>En choisissant l'outil adapté à la situation (script léger vs conteneur vs application complète)</li>
+						<li>En documentant les outils produits pour permettre leur maintenabilité et leur réutilisation</li>
+						<li>En testant et validant les scripts sur des environnements représentatifs avant mise en production</li>
+					</ul>
+				</div>
+
+				<div id="c3-ref" class="tab-panel">
+					<div class="reflexion-block">
+						<strong>Ce que cette compétence m'a apporté :</strong><br><br>
+						C'est la compétence qui m'a le plus surpris dans mon parcours : en Bac Pro, je n'avais
+						jamais écrit une ligne de code. Les premières semaines de TP Python ont été
+						déconcertantes, mais j'ai rapidement réalisé que la programmation est une
+						<strong>façon de penser autant qu'un outil technique</strong>.<br><br>
+						Le script d'inventaire que j'ai développé en CDD est l'exemple qui m'a convaincu :
+						une heure de code bien pensée peut économiser des dizaines d'heures de travail
+						répétitif. Cela a changé ma façon d'aborder les tâches quotidiennes — je me pose
+						maintenant systématiquement la question : <em>est-ce qu'on peut automatiser ça ?</em><br><br>
+						Ce que je veux approfondir : la programmation réseau avec les sockets et les
+						bibliothèques comme <code>Netmiko</code> pour automatiser la configuration
+						d'équipements réseau, et Python/Ansible pour l'infrastructure as code.
+					</div>
+				</div>
+			</div><!-- /C3 -->
+
+		</section><!-- /competences -->
+
+		<!-- ══ PROJETS ═══════════════════════════════════════════ -->
+		<section id="projets" class="container projects">
+			<h2>Projets réalisés</h2>
+			<div class="grid">
+				<article class="card">
+					<h3>SAÉ — Topologie réseau multi-VLAN</h3>
+					<p>Conception sur Packet Tracer d'une infrastructure d'entreprise : adressage VLSM,
+					VLANs, routage OSPF inter-sites, filtrage ACL. Rapport technique et présentation orale.</p>
+					<div>
+						<span class="tag">Packet Tracer</span>
+						<span class="tag">OSPF</span>
+						<span class="tag">ACL</span>
+					</div>
+					<p style="margin-top:0.75rem;"><a href="#">Rapport PDF</a></p>
+				</article>
+				<article class="card">
+					<h3>Script Python — Inventaire parc informatique</h3>
+					<p>Script d'inventaire automatique développé en CDD : collecte WMI, export CSV,
+					intégré dans la routine hebdomadaire du service IT. Économie estimée : 2 h/semaine.</p>
+					<div>
+						<span class="tag">Python</span>
+						<span class="tag">WMI</span>
+						<span class="tag">CSV</span>
+					</div>
+					<p style="margin-top:0.75rem;"><a href="#">Voir le code (GitHub)</a></p>
+				</article>
+				<article class="card">
+					<h3>Script Bash — Sauvegarde automatique</h3>
+					<p>Sauvegarde incrémentale avec <code>rsync</code>, rotation sur 7 jours, rapport par mail.
+					Planifié via <code>cron</code> sur un serveur Linux Debian. Intégré à la politique de sauvegarde.</p>
+					<div>
+						<span class="tag">Bash</span>
+						<span class="tag">rsync</span>
+						<span class="tag">cron</span>
+					</div>
+					<p style="margin-top:0.75rem;"><a href="#">Voir le script</a></p>
+				</article>
+				<article class="card">
+					<h3>SAÉ — Stack web conteneurisée</h3>
+					<p>Déploiement d'un environnement Nginx + PHP + MariaDB via Docker Compose sur VM Linux.
+					Volume persistant, variables d'environnement, documentation de déploiement.</p>
+					<div>
+						<span class="tag">Docker</span>
+						<span class="tag">Nginx</span>
+						<span class="tag">MariaDB</span>
+					</div>
+					<p style="margin-top:0.75rem;"><a href="#">Voir le dépôt</a></p>
+				</article>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>&copy; 2026 Roulier Jacques — BUT RT — Portfolio compétences</p>
+		</div>
+	</footer>
+
+	<script>
+		function switchTab(btn, panelId) {
+			// Trouver la section parente
+			const section = btn.closest('.competence-section');
+			// Désactiver tous les boutons et panneaux de cette section
+			section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+			section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+			// Activer le bon
+			btn.classList.add('active');
+			document.getElementById(panelId).classList.add('active');
+		}
+	</script>
+</body>
+</html>

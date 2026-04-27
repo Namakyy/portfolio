@@ -1,0 +1,147 @@
+/* Thème cybersécurité — sombre néon */
+:root {
+	--bg: #06080a;
+	--panel: #071021;
+	--neon: #00ffd5;
+	--accent: #00c7ff;
+	--muted: #87b3c7;
+	--glass: rgba(255, 255, 255, 0.03);
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+		monospace;
+	background: radial-gradient(ellipse at 10% 10%, #07101a 0%, var(--bg) 40%),
+		var(--bg);
+	color: var(--neon);
+	line-height: 1.6;
+}
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 1.25rem;
+}
+.skip-link {
+	position: absolute;
+	left: -999px;
+}
+.skip-link:focus {
+	left: 1rem;
+	top: 1rem;
+	padding: 0.5rem 0.75rem;
+	background: #000;
+	color: var(--neon);
+	border-radius: 4px;
+}
+.site-header {
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent);
+	border-bottom: 1px solid rgba(0, 200, 255, 0.06);
+	backdrop-filter: blur(4px);
+}
+.header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+}
+.site-title a {
+	color: var(--neon);
+	text-decoration: none;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+}
+.main-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 1.25rem;
+}
+.main-nav a {
+	color: var(--muted);
+	text-decoration: none;
+	padding: 0.25rem 0.5rem;
+	border-radius: 4px;
+}
+.main-nav a:hover {
+	color: var(--neon);
+	text-shadow: 0 0 8px rgba(0, 255, 213, 0.2);
+}
+.hero {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent),
+		url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="120" viewBox="0 0 600 120"><g fill="none" stroke="%2300c7ff" stroke-opacity="0.06" stroke-width="1"><path d="M0 40 Q150 10 300 40 T600 40"/></g></svg>')
+			center/cover no-repeat;
+	padding: 4rem 0;
+}
+.hero .lead {
+	color: var(--muted);
+	max-width: 70%;
+}
+.btn {
+	display: inline-block;
+	padding: 0.5rem 0.9rem;
+	background: transparent;
+	color: var(--neon);
+	border: 1px solid rgba(0, 199, 255, 0.18);
+	border-radius: 6px;
+	text-decoration: none;
+	box-shadow: 0 0 12px rgba(0, 199, 255, 0.04);
+}
+.about,
+.projects {
+	padding: 2rem 0;
+}
+.skills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+.skills li {
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent);
+	padding: 0.4rem 0.7rem;
+	border: 1px solid rgba(0, 200, 255, 0.06);
+	border-radius: 6px;
+	color: var(--muted);
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+}
+.card {
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.02),
+		rgba(255, 255, 255, 0.01)
+	);
+	padding: 1.25rem;
+	border-radius: 8px;
+	border: 1px solid rgba(0, 200, 255, 0.06);
+	box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+}
+.card h3 {
+	color: var(--accent);
+}
+.card a {
+	color: var(--neon);
+	text-decoration: none;
+}
+.site-footer {
+	border-top: 1px solid rgba(0, 200, 255, 0.04);
+	padding: 1rem 0;
+	margin-top: 2rem;
+	text-align: center;
+	color: var(--muted);
+}
+@media (max-width: 800px) {
+	.main-nav ul {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.hero .lead {
+		max-width: 100%;
+	}
+}
