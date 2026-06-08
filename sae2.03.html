@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="SAÉ RT3 — ATC Manager — Fiche projet portfolio BUT RT Roulier Jacques">
+	<meta name="author" content="Roulier Jacques">
+	<meta name="theme-color" content="#06080a">
+	<title>SAÉ RT3 — ATC Manager — Roulier Jacques</title>
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber">
+	<a class="skip-link" href="#main">Aller au contenu</a>
+	<header class="site-header">
+		<div class="container header-inner">
+			<h1 class="site-title"><a href="index.html">Roulier Jacques</a></h1>
+			<nav class="main-nav" aria-label="Navigation principale">
+				<ul>
+					<li><a href="index.html#accueil">Accueil</a></li>
+					<li><a href="index.html#apropos">À propos</a></li>
+					<li><a href="index.html#competences">Compétences</a></li>
+					<li><a href="index.html#projets">Projets</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main" role="main">
+
+		<!-- ── HERO ── -->
+		<section class="hero">
+			<div class="container">
+				<p style="font-size:0.78rem;color:var(--muted);letter-spacing:0.1em;margin-bottom:0.5rem;">
+					<a href="index.html#projets" style="color:var(--muted);text-decoration:none;">← Retour aux projets</a>
+				</p>
+				<h2>SAÉ RT3 — ATC Manager</h2>
+				<p class="lead">
+					Application web de gestion du trafic aérien développée en équipe de 3.<br>
+					Stack : <strong>Django + MySQL</strong> déployée sur <strong>VM Linux</strong>.
+				</p>
+				<div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;">
+					<span class="tag">Django</span>
+					<span class="tag">MySQL</span>
+					<span class="tag">Python</span>
+					<span class="tag">HTML/CSS</span>
+					<span class="tag">GitHub</span>
+					<span class="tag">VM Linux</span>
+					<span class="tag">Apache</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── ENGLISH SUMMARY ── -->
+		<section class="container" style="padding:2rem 0;border-top:1px solid rgba(0,200,255,0.07);">
+			<h2>Project Summary <span style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;vertical-align:middle;margin-left:0.5rem;">EN</span></h2>
+			<div class="card" style="max-width:760px;">
+				<p style="color:var(--muted);font-size:0.9rem;line-height:1.8;">
+					<strong style="color:var(--neon);">ATC Manager</strong> is a web-based air traffic control management application
+					built as part of the SAÉ RT3 module at IUT Réseaux &amp; Télécommunications.
+					The project was developed collaboratively by a team of three students over six weeks,
+					using <strong style="color:var(--accent);">Django</strong> as the backend framework,
+					<strong style="color:var(--accent);">MySQL</strong> as the database engine,
+					and deployed on a <strong style="color:var(--accent);">Linux virtual machine</strong>
+					running Apache.
+				</p>
+				<p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-top:0.75rem;">
+					The application allows operators to manage airports, runways, airlines, aircraft types,
+					aircraft, and flights through a full CRUD interface. Its core feature is an
+					<strong style="color:var(--neon);">automatic runway assignment algorithm</strong>:
+					when a new flight is created, the system checks runway availability at both
+					departure and arrival airports — based on runway length compatibility and
+					time-window conflicts — and assigns a free runway automatically.
+					If no runway is available at the requested time, the user is informed and must
+					choose a different time slot.
+				</p>
+				<p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-top:0.75rem;">
+					The application also features a <strong style="color:var(--neon);">CSV bulk import</strong>
+					for flights with per-line validation and a detailed import summary,
+					and a <strong style="color:var(--neon);">report page</strong> allowing filtering
+					by airport and date range. The entire frontend was designed with a custom
+					dark aviation theme built from scratch.
+				</p>
+				<div class="proof-row" style="margin-top:1rem;">
+					<div class="proof-badge"><span>🔗</span> Dépôt GitHub</div>
+					<div class="proof-badge"><span>🖥️</span> VM Linux déployée</div>
+					<div class="proof-badge"><span>📄</span> Rapport d'installation</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── MES CONTRIBUTIONS ── -->
+		<section class="container" style="padding:2rem 0;border-top:1px solid rgba(0,200,255,0.07);">
+			<h2>Mes contributions</h2>
+			<p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem;">
+				Répartition des tâches au sein du groupe de 3 — ce que j'ai développé personnellement.
+			</p>
+
+			<div class="ac-grid" style="margin-bottom:2rem;">
+
+				<div class="ac-item">
+					<div class="ac-code">ARCHITECTURE</div>
+					<div class="ac-label">Dépôt GitHub & workflow collaboratif</div>
+					<div class="ac-desc">
+						Création du dépôt, mise en place des branches (<code>main</code>, <code>develop</code>,
+						<code>feature/Jacques</code>, <code>feature/Louise</code>, <code>feature/Paul</code>),
+						règles de protection (PR obligatoire, 1 approbation requise), et documentation
+						du workflow Git pour l'équipe.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Branches</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">BACKEND</div>
+					<div class="ac-label">models.py — Architecture de données complète</div>
+					<div class="ac-desc">
+						Conception et écriture de l'intégralité des modèles Django :
+						<code>Aeroports</code>, <code>Piste</code>, <code>Compagnies</code>,
+						<code>Type_avions</code>, <code>Avions</code>, <code>Vols</code>
+						— avec notamment l'ajout des champs <code>piste_depart</code> et
+						<code>piste_arrive</code> sur le modèle <code>Vols</code> pour gérer
+						l'assignation de piste aux deux extrémités du vol.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Django ORM</span><span class="tag">ForeignKey</span><span class="tag">Migrations</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">BACKEND</div>
+					<div class="ac-label">CRUD Vols + algo d'assignation de piste</div>
+					<div class="ac-desc">
+						Développement complet du CRUD vols (list, create, update, delete) avec formulaire
+						Django (ModelForm, validation <code>clean()</code>). Écriture de l'algorithme
+						<code>find_available_runway()</code> dans <code>services.py</code> :
+						vérification de la longueur minimale de piste, détection des conflits sur une
+						fenêtre de ±30 min, et assignation automatique à la création du vol.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Django views</span><span class="tag">ModelForm</span><span class="tag">Algorithme</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">BACKEND</div>
+					<div class="ac-label">Import CSV de vols</div>
+					<div class="ac-desc">
+						Vue d'import par fichier CSV avec validation ligne par ligne :
+						vérification des IDs (avion, aéroports), format de date, cohérence
+						départ/arrivée. Affichage d'un résumé après import (N importés, M rejetés
+						avec motif par ligne). Parseur isolé dans <code>services.py</code>.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">CSV</span><span class="tag">Parsing</span><span class="tag">Validation</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">BACKEND</div>
+					<div class="ac-label">Page rapports / filtres</div>
+					<div class="ac-desc">
+						Vue de consultation des vols avec filtres par aéroport (départ ou arrivée)
+						et par période (date début / date fin) via paramètres GET. Tableau récapitulatif
+						avec toutes les informations du vol et les pistes assignées.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">QuerySet</span><span class="tag">Filtres GET</span><span class="tag">Rapport</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">FRONTEND</div>
+					<div class="ac-label">CSS & design du site</div>
+					<div class="ac-desc">
+						Conception et écriture du <code>style.css</code> complet : thème dark aviation
+						avec variables CSS, typographie monospace (Share Tech Mono / Barlow),
+						composants réutilisables (cards, badges, tables, boutons, formulaires,
+						alertes, confirm delete). Design appliqué à l'ensemble des templates du projet.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">CSS custom</span><span class="tag">Variables CSS</span><span class="tag">Design system</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">FRONTEND</div>
+					<div class="ac-label">Templates HTML — section Vols</div>
+					<div class="ac-desc">
+						Développement des 5 templates Django pour la section vols :
+						<code>vol_form.html</code>, <code>vol_list.html</code>,
+						<code>vol_confirm_delete.html</code>, <code>vol_import.html</code>,
+						<code>vol_report.html</code> — avec héritage <code>base.html</code>,
+						gestion des messages Django et classes CSS du design system.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Django templates</span><span class="tag">Jinja2</span><span class="tag">HTML</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── COMPÉTENCES ACQUISES ── -->
+		<section class="container" style="padding:2rem 0;border-top:1px solid rgba(0,200,255,0.07);">
+			<h2>Compétences BUT RT acquises</h2>
+			<p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem;">
+				Justification de l'acquisition de compétences par rapport à ma contribution personnelle.
+			</p>
+
+			<!-- C3 -->
+			<div class="competence-section" style="padding-top:1.5rem;border-top:1px solid rgba(0,200,255,0.07);">
+				<div class="competence-header">
+					<div class="competence-badge">C3</div>
+					<div>
+						<h3 class="competence-title">Créer des outils et applications pour les R&T</h3>
+						<p class="competence-subtitle">Compétence principale mobilisée — SAÉ RT3</p>
+						<div class="level-bar">
+							<span>Apport SAÉ</span>
+							<div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+							<span>Fort — application complète de bout en bout</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs">
+					<button class="tab-btn active" onclick="switchTab(this,'rt3-c3-ac')">Apprentissages critiques</button>
+					<button class="tab-btn" onclick="switchTab(this,'rt3-c3-sit')">Situations concrètes</button>
+					<button class="tab-btn" onclick="switchTab(this,'rt3-c3-ref')">Réflexion</button>
+				</div>
+
+				<div id="rt3-c3-ac" class="tab-panel active">
+					<div class="ac-grid">
+						<div class="ac-item">
+							<div class="ac-origin nouveau">Acquis en SAÉ RT3</div>
+							<div class="ac-code">AC13-02</div>
+							<div class="ac-label">Développer une application web Django complète</div>
+							<div class="ac-desc">
+								Avant cette SAÉ, j'avais des bases en Python mais jamais développé
+								une application web structurée avec un framework MVC. J'ai mis en place
+								l'architecture complète : modèles ORM, vues (CBV + FBV), formulaires
+								avec validation custom, URLs nommées et templates hérités.
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-origin nouveau">Acquis en SAÉ RT3</div>
+							<div class="ac-code">AC13-02</div>
+							<div class="ac-label">Concevoir et implémenter un algorithme métier</div>
+							<div class="ac-desc">
+								L'algorithme <code>find_available_runway()</code> est le cœur de la SAÉ.
+								Il m'a appris à traduire une logique métier complexe (disponibilité
+								de ressource dans le temps) en code Python structuré, isolé dans
+								un fichier <code>services.py</code> séparé des vues pour la maintenabilité.
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-origin nouveau">Acquis en SAÉ RT3</div>
+							<div class="ac-code">AC13-02</div>
+							<div class="ac-label">Traiter et valider des données externes (CSV)</div>
+							<div class="ac-desc">
+								Le parseur CSV m'a confronté à la problématique de la donnée non fiable :
+								IDs inexistants, formats de date incorrects, incohérences logiques.
+								J'ai appris à construire une validation robuste ligne par ligne avec
+								des messages d'erreur exploitables.
+							</div>
+						</div>
+						<div class="ac-item">
+							<div class="ac-origin renforce">Renforcé en SAÉ RT3</div>
+							<div class="ac-code">AC13-01</div>
+							<div class="ac-label">Travailler en équipe avec Git / GitHub</div>
+							<div class="ac-desc">
+								J'ai mis en place et géré le workflow Git collaboratif pour l'équipe :
+								branches protégées, PR obligatoires, règle des approbations. C'est la
+								première fois que je gérais un dépôt pour une équipe entière — pas
+								seulement pour un usage personnel.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="rt3-c3-sit" class="tab-panel">
+					<div class="situation-card">
+						<h4>Création du dépôt et workflow Git pour l'équipe</h4>
+						<p>
+							Mise en place du dépôt GitHub avant le démarrage du développement :
+							branches <code>main</code>, <code>develop</code>, <code>feature/*</code>,
+							règles de protection (PR + approbation), documentation du workflow
+							pour que les deux autres étudiants sachent comment travailler.
+							Sans cette mise en place, les conflits de merge auraient été incontrôlables.
+						</p>
+						<div><span class="tag">GitHub</span><span class="tag">Git workflow</span><span class="tag">Branch protection</span></div>
+					</div>
+					<div class="situation-card">
+						<h4>Conception de l'architecture de données (models.py)</h4>
+						<p>
+							Écriture de l'intégralité des modèles Django en amont — Aeroports, Piste,
+							Compagnies, Type_avions, Avions, Vols — avec les ForeignKey, related_names,
+							et les champs <code>piste_depart</code> / <code>piste_arrive</code> que j'ai
+							ajoutés pour répondre au besoin de l'algorithme. Les deux autres étudiants
+							ont développé leurs CRUDs à partir de ces modèles.
+						</p>
+						<div><span class="tag">Django ORM</span><span class="tag">ForeignKey</span><span class="tag">Conception BDD</span></div>
+					</div>
+					<div class="situation-card">
+						<h4>Implémentation de l'algorithme d'assignation de piste</h4>
+						<p>
+							L'algorithme vérifie pour chaque vol créé : pistes compatibles en longueur,
+							absence de conflit dans une fenêtre de ±30 min, disponibilité à l'aéroport
+							de départ ET d'arrivée. Si toutes les pistes sont occupées, le vol est refusé
+							avec un message explicite. Isolé dans <code>services.py</code> pour être
+							réutilisable et testable indépendamment des vues.
+						</p>
+						<div><span class="tag">Python</span><span class="tag">Django ORM</span><span class="tag">Algorithme</span><span class="tag">services.py</span></div>
+					</div>
+					<div class="situation-card">
+						<h4>Design system CSS — thème dark aviation</h4>
+						<p>
+							Conception du <code>style.css</code> complet à partir de zéro : variables CSS,
+							composants réutilisables (boutons, tables, cards, badges, formulaires, alertes).
+							Le design a été appliqué à l'ensemble des templates du projet — pas seulement
+							à ma section vols — pour assurer la cohérence visuelle de l'application.
+						</p>
+						<div><span class="tag">CSS custom</span><span class="tag">Design system</span><span class="tag">Variables CSS</span></div>
+					</div>
+				</div>
+
+				<div id="rt3-c3-ref" class="tab-panel">
+					<div class="reflexion-block">
+						<strong>Ce que cette SAÉ m'a vraiment appris :</strong><br><br>
+						La SAÉ RT3 est le projet le plus complet que j'ai réalisé en BUT. Ce qui m'a le plus
+						appris, c'est la <strong>séparation des responsabilités</strong> dans un projet
+						réel : l'algorithme dans <code>services.py</code>, les vues dans <code>views.py</code>,
+						les formulaires dans <code>forms.py</code>. Avant, j'aurais tout mis dans un seul
+						fichier sans me poser la question.<br><br>
+						La gestion du <strong>dépôt GitHub en équipe</strong> a aussi été un apprentissage
+						concret. Mettre en place des règles de protection et un workflow de PR n'est pas
+						complexe techniquement, mais c'est ce qui a évité les conflits et les écrasements
+						de code pendant les 6 semaines du projet.<br><br>
+						L'algorithme de vérification de piste m'a confronté à un problème que je n'avais
+						pas anticipé : <strong>la disponibilité d'une ressource dans le temps</strong>
+						est un problème classique mais non trivial. Comment définir une fenêtre de
+						conflit ? Comment gérer le cas où l'aéroport n'a aucune piste compatible en
+						longueur ? Ces cas limites m'ont appris à penser à la robustesse avant même de
+						coder.<br><br>
+						Ce que je veux approfondir : les tests unitaires Django (<code>TestCase</code>)
+						pour valider l'algorithme automatiquement, et l'intégration continue via
+						GitHub Actions.
+					</div>
+				</div>
+			</div>
+
+			<!-- C1 lien -->
+			<div class="situation-card" style="margin-top:1.5rem;">
+				<h4>Lien avec C1 — Administrer</h4>
+				<p>
+					Le déploiement de l'application sur VM Linux (Apache, configuration de la base
+					MySQL, gestion des droits) mobilise des compétences d'administration système
+					et réseau directement issues de C1 — même si cette partie a été prise en charge
+					par un autre membre de l'équipe, j'ai contribué à la documentation de
+					l'installation et compris les choix de déploiement.
+				</p>
+				<div><span class="tag">VM Linux</span><span class="tag">Apache</span><span class="tag">MySQL</span><span class="tag">Déploiement</span></div>
+			</div>
+		</section>
+
+		<!-- ── STACK TECHNIQUE ── -->
+		<section class="container" style="padding:2rem 0;border-top:1px solid rgba(0,200,255,0.07);">
+			<h2>Stack technique</h2>
+			<div class="ac-grid">
+				<div class="ac-item">
+					<div class="ac-code">BACKEND</div>
+					<div class="ac-label">Django 4.x + Python 3</div>
+					<div class="ac-desc">Framework MVC, ORM, système de templates, vues CBV/FBV mixtes, formulaires ModelForm avec validation custom.</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">BASE DE DONNÉES</div>
+					<div class="ac-label">MySQL / MariaDB</div>
+					<div class="ac-desc">Via <code>mysqlclient</code>. 6 tables relationnelles avec contraintes ForeignKey, migrations Django.</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">DÉPLOIEMENT</div>
+					<div class="ac-label">VM Linux — Apache</div>
+					<div class="ac-desc">Application déployée sur machine virtuelle Ubuntu avec Apache comme serveur web. Configuration <code>mod_wsgi</code>.</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">VERSIONING</div>
+					<div class="ac-label">Git / GitHub</div>
+					<div class="ac-desc">Workflow collaboratif : branches protégées, PR obligatoires, 3 branches feature parallèles, merge vers develop puis main.</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── RETOUR PROJETS ── -->
+		<section class="container" style="padding:1.5rem 0 3rem;">
+			<a class="btn" href="index.html#projets">← Retour aux projets</a>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>&copy; 2026 Roulier Jacques — BUT RT — Portfolio compétences</p>
+		</div>
+	</footer>
+
+	<script>
+		function switchTab(btn, panelId) {
+			const section = btn.closest('.competence-section');
+			section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+			section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+			btn.classList.add('active');
+			document.getElementById(panelId).classList.add('active');
+		}
+	</script>
+</body>
+</html>
