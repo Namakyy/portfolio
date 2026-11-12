@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="SAÉ S3.02 — Développer des applications communicantes — Simulation de trafic — Fiche projet portfolio BUT RT Roulier Jacques">
+	<meta name="author" content="Roulier Jacques">
+	<meta name="theme-color" content="#06080a">
+	<title>SAÉ S3.02 - Simulation de trafic - Roulier Jacques</title>
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		/* Éléments propres à cette page (styles.css reste inchangé) */
+		code { color: var(--accent); font-size: 0.92em; }
+		.section-block { padding: 2rem 0; border-top: 1px solid rgba(0,200,255,0.07); }
+		.note { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+		.a-completer { display: inline-block; font-size: 0.72rem; color: #ffb347; border: 1px dashed rgba(255,179,71,0.6); border-radius: 4px; padding: 0.1rem 0.5rem; background: rgba(255,179,71,0.06); }
+		.a-completer[hidden] { display: none; }
+		.proof-badge .a-completer { color: #ffb347; }
+
+		.ac-origin.prevu { background: rgba(255,179,71,0.07); color: #ffb347; border: 1px solid rgba(255,179,71,0.25); }
+
+		.matrix { display: grid; gap: 1rem; margin-top: 1.2rem; }
+		.matrix-card { border: 1px solid rgba(0,200,255,0.09); border-left: 4px solid var(--c, var(--accent)); border-radius: 0 8px 8px 0; padding: 1.1rem 1.3rem; background: var(--glass); }
+		.matrix-card > h4 { margin: 0 0 0.7rem; color: var(--c, var(--neon)); font-size: 0.98rem; }
+		.matrix-card p, .matrix-card li { color: var(--muted); font-size: 0.84rem; line-height: 1.7; }
+		.matrix-card strong { color: var(--neon); }
+		.matrix-card h5 { margin: 1.1rem 0 0.4rem; color: var(--c, var(--accent)); font-size: 0.86rem; }
+		.m1 { --c: #00ffd5; } .m2 { --c: #00c7ff; } .m3 { --c: #b48cff; } .m4 { --c: #ff9a3c; }
+
+		.cite { border-left: 2px solid rgba(0,199,255,0.35); margin: 0.4rem 0 0.8rem; padding: 0.2rem 0 0.2rem 0.9rem; font-size: 0.8rem; color: var(--muted); }
+
+		.code-title { font-size: 0.78rem; color: var(--accent); margin: 1rem 0 0.3rem; }
+		pre.code { background: rgba(0,0,0,0.35); border: 1px solid rgba(0,200,255,0.12); border-radius: 7px; padding: 0.9rem 1rem; overflow: auto; font-size: 0.76rem; line-height: 1.5; color: var(--muted); margin: 0; }
+		pre.code code { color: inherit; font-size: inherit; }
+
+		figure.capture { margin: 0.8rem 0; border: 1px solid rgba(0,200,255,0.09); border-radius: 7px; padding: 0.6rem; background: var(--glass); }
+		figure.capture img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
+		figure.capture figcaption { font-size: 0.76rem; color: var(--muted); margin-top: 0.5rem; }
+	</style>
+</head>
+<body class="cyber">
+	<a class="skip-link" href="#main">Aller au contenu</a>
+	<header class="site-header">
+		<div class="container header-inner">
+			<h1 class="site-title"><a href="index.html">Roulier Jacques</a></h1>
+			<nav class="main-nav" aria-label="Navigation principale">
+				<ul>
+					<li><a href="index.html#accueil">Accueil</a></li>
+					<li><a href="index.html#apropos">À propos</a></li>
+					<li><a href="index.html#competences">Compétences</a></li>
+					<li><a href="index.html#projets">Projets</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main" role="main">
+
+		<!-- ── HERO ── -->
+		<section class="hero">
+			<div class="container">
+				<p style="font-size:0.78rem;color:var(--muted);letter-spacing:0.1em;margin-bottom:0.5rem;">
+					<a href="index.html#projets" style="color:var(--muted);text-decoration:none;">← Retour aux projets</a>
+				</p>
+				<h2>SAÉ S3.02 - Simulation de trafic routier</h2>
+				<p class="lead">
+					Simulation d'un carrefour à feux avec parking et véhicules prioritaires, dans le cadre de
+					« Développer des applications communicantes ».<br>
+					Stack : <strong>Python + PyQt6 + threads</strong> - communication par <strong>sockets</strong>,
+					<strong>base de données</strong> et <strong>déploiement multiplateforme</strong> en cours.
+				</p>
+				<div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;">
+					<span class="tag">Python</span>
+					<span class="tag">PyQt6</span>
+					<span class="tag">Threads</span>
+					<span class="tag">Socket TCP (prévu)</span>
+					<span class="tag">Base de données (prévu)</span>
+					<span class="tag">Git / GitHub</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── ÉTAT D'AVANCEMENT ── -->
+		<section class="container section-block">
+			<h2>État d'avancement</h2>
+			<p class="note">Ce que le projet fait aujourd'hui et ce qui reste à construire. Cette page est mise à jour au fil de la SAÉ.</p>
+			<div class="timeline">
+				<div class="tl-item">
+					<div class="tl-date">RÉALISÉ</div>
+					<div class="tl-title">Modélisation et simulation du carrefour</div>
+					<div class="tl-desc">Classes du modèle, cycle des feux, apparition aléatoire des véhicules, arrêt aux feux, virages, détection du véhicule devant, affichage PyQt6 adapté à la taille de l'écran.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">RÉALISÉ</div>
+					<div class="tl-title">Parking et véhicules prioritaires</div>
+					<div class="tl-desc">Parking avec places, entrée, stationnement et sortie, compteur de places. Véhicules prioritaires avec panneau de création d'urgences, intégrés à la branche principale.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">RÉALISÉ</div>
+					<div class="tl-title">Threads</div>
+					<div class="tl-desc">Mise en place des threads de l'application. <span class="a-completer">à compléter : ce qui s'exécute dans chaque thread</span></div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">PROCHAINE ÉTAPE</div>
+					<div class="tl-title">Communication réseau (sockets TCP)</div>
+					<div class="tl-desc">Architecture client / serveur : la simulation côté serveur, l'interface côté client, échange de messages JSON, plusieurs clients simultanés.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">À VENIR</div>
+					<div class="tl-title">Base de données</div>
+					<div class="tl-desc">Historique des urgences et statistiques du trafic, consultables depuis le client.</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-date">À VENIR</div>
+					<div class="tl-title">Déploiement</div>
+					<div class="tl-desc">Application utilisable sous Linux, macOS et Windows, avec scripts d'installation et documentation.</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── ENGLISH SUMMARY ── -->
+		<section class="container section-block">
+			<h2>Project Summary <span style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;vertical-align:middle;margin-left:0.5rem;">EN</span></h2>
+			<div class="card" style="max-width:760px;">
+				<p style="color:var(--muted);font-size:0.9rem;line-height:1.8;">
+					<strong style="color:var(--neon);">Traffic Simulation</strong> is a Python desktop application built for the
+					SAÉ S3.02 module at IUT Réseaux &amp; Télécommunications. It simulates a signalised intersection:
+					vehicles appear randomly, obey traffic lights, keep a safe distance, turn left or right when the
+					target lane is free, and can park in a car park with a live count of free spaces. Emergency vehicles
+					can be created from a control panel: the lights turn green for them and the other cars pull over.
+				</p>
+				<p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-top:0.75rem;">
+					The interface is built with <strong style="color:var(--accent);">PyQt6</strong> and the simulation runs
+					with <strong style="color:var(--accent);">threads</strong>. The next steps are a
+					<strong style="color:var(--accent);">TCP socket</strong> client/server architecture, a
+					<strong style="color:var(--accent);">database</strong> for history and statistics, and a deployment
+					that works on Linux, macOS and Windows.
+				</p>
+			</div>
+		</section>
+
+		<!-- ── MES CONTRIBUTIONS ── -->
+		<section class="container section-block">
+			<h2>Mes contributions</h2>
+			<p class="note">
+				Répartition des tâches au sein de l'équipe : <span class="a-completer">à compléter (qui a fait quoi)</span>.
+				Ci-dessous, ce que j'ai développé ou intégré personnellement.
+			</p>
+
+			<div class="ac-grid">
+				<div class="ac-item">
+					<div class="ac-code">MODÈLE</div>
+					<div class="ac-label">Modélisation orientée objet du carrefour</div>
+					<div class="ac-desc">
+						Classes <code>Route</code>, <code>Intersection</code>, <code>Feu</code>, <code>Vehicule</code>,
+						<code>Parking</code>, <code>Place</code> et <code>Simulation</code>, avec attributs privés et accesseurs.
+						Séparation en dossiers <code>src/model</code>, <code>src/simulation</code> et <code>src/gui</code>.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">POO</span><span class="tag">Encapsulation</span><span class="tag">Architecture</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">LOGIQUE</div>
+					<div class="ac-label">Cycle des feux : machine à états</div>
+					<div class="ac-desc">
+						Quatre feux synchronisés par axe, phases vert, orange, rouge et temps « tout rouge » entre deux axes.
+						Le temps est géré par un compteur décrémenté à chaque tick, sans pause bloquante.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Machine à états</span><span class="tag">QTimer</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">LOGIQUE</div>
+					<div class="ac-label">Circulation : apparition, suivi et virages</div>
+					<div class="ac-desc">
+						Apparition aléatoire (direction, destination, couleur), suppression hors écran, arrêt aux feux,
+						distance de sécurité sur la même voie, virages à gauche et à droite avec test de voie libre.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Algorithmique</span><span class="tag">random</span><span class="tag">Priorités</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">AFFICHAGE</div>
+					<div class="ac-label">Interface PyQt6</div>
+					<div class="ac-desc">
+						Boucle d'animation <code>QTimer</code> de 30 ms, dessin avec <code>QPainter</code> : routes, lignes d'arrêt,
+						séparateur de voies, feux à trois lampes orientables, véhicules, parking.
+						Plein écran adaptatif, touche Échap pour quitter.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">PyQt6</span><span class="tag">QPainter</span><span class="tag">Événementiel</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">FONCTIONNALITÉ</div>
+					<div class="ac-label">Parking</div>
+					<div class="ac-desc">
+						Places, voies d'entrée et de sortie, stationnement pendant une durée aléatoire, compteur de places
+						libres et occupées. Attente et seuil de distance avant de s'engager sur la route à la sortie.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Trajectoires</span><span class="tag">États</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">INTÉGRATION</div>
+					<div class="ac-label">Véhicules prioritaires</div>
+					<div class="ac-desc">
+						Récupération du code des véhicules prioritaires développé sur une seconde branche
+						<span class="a-completer">à préciser : auteur</span>
+						et intégration à la branche principale en conservant le parking : priorité aux feux, panneau d'urgence,
+						voitures qui se rangent.
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">Git</span><span class="tag">Fusion de branches</span>
+					</div>
+				</div>
+
+				<div class="ac-item">
+					<div class="ac-code">CONCURRENCE</div>
+					<div class="ac-label">Threads</div>
+					<div class="ac-desc">
+						Mise en place des threads de l'application, première étape avant le passage au réseau.
+						<span class="a-completer">à détailler</span>
+					</div>
+					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
+						<span class="tag">threading</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── COMPÉTENCE C3 ── -->
+		<section class="container section-block">
+			<h2>Compétence BUT RT mobilisée</h2>
+			<p class="note">Fiche structurée selon la matrice du portfolio : contexte, apprentissages critiques, réflexion, preuves.</p>
+
+			<div class="competence-section" style="padding-top:1.5rem;border-top:1px solid rgba(0,200,255,0.07);">
+				<div class="competence-header">
+					<div class="competence-badge">C3</div>
+					<div>
+						<h3 class="competence-title">Programmer - Créer des outils et applications informatiques pour les R&amp;T</h3>
+						<p class="competence-subtitle">Compétence principale mobilisée - SAÉ S3.02 (niveau 2 : « Développer une application R&amp;T »)</p>
+						<div class="level-bar">
+							<span>Apport SAÉ</span>
+							<div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+							<span>Solide sur le développement - réseau et données à venir</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="matrix">
+
+					<!-- 1 -->
+					<div class="matrix-card m1">
+						<h4>1. Contexte de la compétence &amp; situation professionnelle</h4>
+						<p>
+							<strong>Cadre.</strong> La SAÉ S3.02 « Développer des applications communicantes » demande de concevoir en Python
+							une application dont les composants échangent par le réseau, en utilisant des threads, des sockets et une base de données.
+							Les consignes détaillées étant limitées, l'équipe a défini elle-même son cahier des charges
+							(<a href="#preuves" style="color:var(--neon);">voir les preuves</a>), avec une contrainte que nous nous sommes fixée :
+							une application qui fonctionne sous Linux, macOS et Windows.
+						</p>
+						<p>
+							<strong>Situation professionnelle.</strong> Le sujet traité est la simulation d'un carrefour à feux avec trafic aléatoire,
+							parking et véhicules prioritaires. Il équivaut à un outil de supervision utilisé en interne par une équipe de gestion du trafic :
+							un opérateur visualise la circulation et déclenche des interventions d'urgence. Cela correspond à la situation professionnelle
+							du référentiel pour cette compétence : « Développement d'outils informatiques à usage interne d'une équipe ».
+						</p>
+						<p>
+							<strong>Phases du projet.</strong> (1) modélisation de l'architecture logicielle en classes ;
+							(2) développement de la simulation et de l'interface graphique ;
+							(3) fiabilisation : blocages, collisions, priorités ;
+							(4) extensions : parking et véhicules prioritaires ;
+							(5) passage à une application communicante : threads, puis sockets, base de données et déploiement.
+						</p>
+					</div>
+
+					<!-- 2 -->
+					<div class="matrix-card m2">
+						<h4>2. Apprentissages critiques (AC) ciblés</h4>
+						<p>
+							Référentiel BUT R&amp;T, compétence « Programmer », parcours Cybersécurité. Les intitulés ci-dessous sont repris
+							tels qu'ils figurent au référentiel. Les codes suivent la numérotation du programme.
+						</p>
+
+						<h5>Niveau 2 - « Développer une application R&amp;T »</h5>
+						<div class="ac-grid">
+							<div class="ac-item">
+								<div class="ac-origin nouveau">Mobilisé - réalisé</div>
+								<div class="ac-code">AC23.02</div>
+								<div class="ac-label">« Développer une application à partir d'un cahier des charges donné, pour le Web ou les périphériques mobiles »</div>
+								<div class="ac-desc">
+									Ma simulation est une application de bureau (PyQt6) et non une application web ou mobile : le support
+									diffère, la démarche est la même. Je suis parti d'un cahier des charges, j'ai défini les classes, développé,
+									testé et corrigé par itérations.
+								</div>
+							</div>
+							<div class="ac-item">
+								<div class="ac-origin prevu">Prévu</div>
+								<div class="ac-code">AC23.03</div>
+								<div class="ac-label">« Utiliser un protocole réseau pour programmer une application client/serveur »</div>
+								<div class="ac-desc">
+									Serveur de simulation et clients d'affichage reliés par sockets TCP, avec échange de messages JSON
+									et un thread par client.
+								</div>
+							</div>
+							<div class="ac-item">
+								<div class="ac-origin prevu">Prévu</div>
+								<div class="ac-code">AC23.04</div>
+								<div class="ac-label">« Installer, administrer un système de gestion de données »</div>
+								<div class="ac-desc">
+									Choix, mise en place et administration du système de gestion de données qui stockera l'historique.
+								</div>
+							</div>
+							<div class="ac-item">
+								<div class="ac-origin prevu">Prévu</div>
+								<div class="ac-code">AC23.05</div>
+								<div class="ac-label">« Accéder à un ensemble de données depuis une application et/ou un site web »</div>
+								<div class="ac-desc">
+									Enregistrement des urgences et des mesures de trafic, puis consultation depuis l'application.
+								</div>
+							</div>
+							<div class="ac-item">
+								<div class="ac-origin prevu">Prévu</div>
+								<div class="ac-code">AC23.01</div>
+								<div class="ac-label">« Automatiser l'administration système avec des scripts »</div>
+								<div class="ac-desc">
+									Scripts d'installation et de lancement pour les trois systèmes d'exploitation.
+								</div>
+							</div>
+						</div>
+
+						<h5>Niveau 1 - « S'intégrer dans un service informatique » (renforcé)</h5>
+						<div class="ac-grid">
+							<div class="ac-item">
+								<div class="ac-origin renforce">Renforcé en S3.02</div>
+								<div class="ac-code">AC13.02</div>
+								<div class="ac-label">« Lire, exécuter, corriger et modifier un programme »</div>
+								<div class="ac-desc">
+									Lecture de tracebacks, ajout de <code>print</code> de diagnostic pour comprendre des blocages,
+									correction d'erreurs d'encapsulation et de logique de boucles.
+								</div>
+							</div>
+							<div class="ac-item">
+								<div class="ac-origin renforce">Renforcé en S3.02</div>
+								<div class="ac-code">AC13.03</div>
+								<div class="ac-label">« Traduire un algorithme, dans un langage et pour un environnement donné »</div>
+								<div class="ac-desc">
+									Traduction en Python et PyQt de règles de circulation : cycle des feux, voie libre avant un virage,
+									distance de sécurité, priorité d'un véhicule d'urgence.
+								</div>
+							</div>
+							<div class="ac-item">
+								<div class="ac-origin renforce">Renforcé en S3.02</div>
+								<div class="ac-code">AC13.06</div>
+								<div class="ac-label">« S'intégrer dans un environnement propice au développement et au travail collaboratif »</div>
+								<div class="ac-desc">
+									Travail avec Git et GitHub sur plusieurs branches, fusion de deux versions du projet.
+								</div>
+							</div>
+						</div>
+
+						<h5>Composantes essentielles visées</h5>
+						<ul class="ce-list">
+							<li>« en documentant le travail réalisé » : cette page, les commentaires et les docstrings du code.</li>
+							<li>« en choisissant les outils de développement adaptés » : PyQt6 pour l'interface, les modules standard de Python pour les threads et les sockets.</li>
+							<li>« en intégrant les problématiques de sécurité » : prévu pour la phase réseau, avec authentification des clients et validation des messages reçus.</li>
+						</ul>
+					</div>
+
+					<!-- 3 -->
+					<div class="matrix-card m3">
+						<h4>3. Description réflexive de l'activité</h4>
+						<div class="reflexion-block">
+							<strong>Ce que j'ai fait précisément.</strong><br>
+							J'ai modélisé le carrefour en classes séparées en trois couches (modèle, logique de simulation, interface), écrit les règles
+							de circulation (feux, arrêts, distance de sécurité, virages), réalisé l'affichage PyQt6, ajouté le parking, puis intégré
+							les véhicules prioritaires à la branche principale. Les threads sont en place ; les sockets, la base de données
+							et le déploiement sont les prochaines étapes.<br><br>
+
+							<strong>Ma démarche.</strong><br>
+							J'avance par petites étapes : j'ajoute une règle, je la teste visuellement dans la simulation, puis je corrige.
+							Quand le comportement est incompréhensible, j'affiche des informations de diagnostic (état, position, cause d'un arrêt)
+							pour savoir quelle condition se déclenche, avant de modifier le code.<br><br>
+
+							<strong>Difficultés rencontrées et solutions.</strong>
+						</div>
+						<ul class="ce-list" style="margin-top:0.6rem;">
+							<li><span><strong>Interface figée par <code>time.sleep()</code>.</strong> Ma première version du cycle des feux faisait des pauses bloquantes : toute la fenêtre se figeait, car Qt n'utilise qu'un seul fil pour l'interface. J'ai compris le rôle de la boucle d'événements et remplacé les pauses par un compteur décrémenté à chaque tick du <code>QTimer</code>, dans une machine à états.</span></li>
+							<li><span><strong>Erreurs d'encapsulation.</strong> Accès à des attributs privés depuis l'interface, appel d'une méthode sans parenthèses (<code>get_x</code> au lieu de <code>get_x()</code>), méthode écrasée par un entier (<code>'int' object is not callable</code>). Corrigé avec des accesseurs et mutateurs, en lisant les messages d'erreur ligne par ligne.</span></li>
+							<li><span><strong>Boucle imbriquée.</strong> Une boucle sur les quatre directions contenant la boucle sur tous les véhicules les faisait avancer quatre fois par tick. Le point d'apparition dérivait aussi hors de l'écran et les nouveaux véhicules étaient supprimés aussitôt. Trouvé en relisant la structure des boucles.</span></li>
+							<li><span><strong>Interblocages au carrefour.</strong> Des véhicules se bloquaient mutuellement pour toujours. J'ai affiché « qui bloque qui » pour comprendre la chaîne. J'ai essayé un mécanisme de « patience » qui forçait le passage après un délai, puis je l'ai retiré : il provoquait des collisions au feu rouge. Leçon : on ne résout pas un conflit de priorité en assouplissant la règle de sécurité.</span></li>
+							<li><span><strong>Détection de collision.</strong> Comparer la distance à toutes les voitures arrêtait des véhicules situés sur d'autres voies. J'ai limité la détection aux véhicules devant, sur la même voie, avant de calculer la distance.</span></li>
+							<li><span><strong>Intégration de deux branches.</strong> La branche des véhicules prioritaires et la branche principale (avec le parking) modifiaient les mêmes fichiers. Fusion manuelle en gardant les deux fonctionnalités. Leçon : découper les responsabilités et passer par des pull requests évite ces conflits.</span></li>
+							<li><span><strong>Sorties de parking.</strong> Certaines voitures s'arrêtaient sans raison apparente. Mon hypothèse : il manquait une vraie attente avant de s'engager sur la route et une vérification plus lointaine de l'arrivée d'une voiture. J'ai ajouté une attente et un seuil de distance, puis retesté.</span></li>
+						</ul>
+						<div class="reflexion-block" style="margin-top:0.8rem;">
+							<strong>Ce que j'ai appris.</strong><br>
+							Séparer le modèle, la logique et l'affichage ; utiliser une machine à états pour tout ce qui dépend du temps ;
+							tester une modification à la fois ; traiter un blocage en comprenant sa cause plutôt qu'en le contournant ;
+							fusionner deux versions d'un même code.<br><br>
+
+							<strong>Ce que je veux approfondir.</strong><br>
+							La protection de l'état partagé entre plusieurs threads (verrous), la conception d'un protocole de messages entre
+							client et serveur, l'accès concurrent à une base de données, des tests automatisés de la simulation sans interface
+							et le packaging multiplateforme.<br><br>
+
+							<strong>Transparence.</strong><br>
+							J'ai utilisé un assistant d'IA pour comprendre des erreurs, comparer des approches et relire du code.
+							Chaque proposition a été lue, testée dans la simulation, puis adaptée ou rejetée : c'est le cas du mécanisme de
+							« patience », que j'ai retiré après avoir constaté ses effets.
+						</div>
+					</div>
+
+					<!-- 4 -->
+					<div class="matrix-card m4" id="preuves">
+						<h4>4. Liste des traces et des preuves (vérifiables)</h4>
+
+						<h5>a) Historique Git</h5>
+						<p>Commits et branches dont je suis l'auteur :</p>
+						<div class="proof-row">
+							<div class="proof-badge"><span>↗</span> Dépôt du projet : <span class="a-completer">lien GitHub</span></div>
+							<div class="proof-badge"><span>↗</span> Boucle de simulation et feux : <span class="a-completer">lien commit</span></div>
+							<div class="proof-badge"><span>↗</span> Parking : <span class="a-completer">lien commit</span></div>
+							<div class="proof-badge"><span>↗</span> Fusion des véhicules prioritaires : <span class="a-completer">lien commit</span></div>
+							<div class="proof-badge"><span>↗</span> Threads : <span class="a-completer">lien commit</span></div>
+						</div>
+
+						<h5>b) Captures d'écran légendées</h5>
+						<figure class="capture">
+	<img src="images/sae302-carrefour.png" alt="Vue d&#x27;ensemble du carrefour avec voitures et feux" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-carrefour.png</code></div>
+	<figcaption><strong>Figure 1</strong> - Vue d'ensemble : carrefour, feux à trois lampes, voitures colorées et marquages (lignes d'arrêt, séparateur de voies).</figcaption>
+</figure>
+<figure class="capture">
+	<img src="images/sae302-feux-file.png" alt="Voitures à l&#x27;arrêt à un feu rouge" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-feux-file.png</code></div>
+	<figcaption><strong>Figure 2</strong> - Feu au rouge : les voitures s'arrêtent derrière la ligne d'arrêt en respectant la distance de sécurité.</figcaption>
+</figure>
+<figure class="capture">
+	<img src="images/sae302-parking.png" alt="Parking avec compteur de places libres" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-parking.png</code></div>
+	<figcaption><strong>Figure 3</strong> - Parking : places, voies d'entrée et de sortie, compteur « places libres / total ».</figcaption>
+</figure>
+<figure class="capture">
+	<img src="images/sae302-urgence.png" alt="Véhicule prioritaire et panneau de création d&#x27;urgence" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-urgence.png</code></div>
+	<figcaption><strong>Figure 4</strong> - Véhicule prioritaire : le panneau d'urgence crée l'intervention, les feux passent au vert pour le véhicule et les voitures se rangent.</figcaption>
+</figure>
+<figure class="capture">
+	<img src="images/sae302-threads.png" alt="Console ou schéma illustrant les threads de l&#x27;application" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-threads.png</code></div>
+	<figcaption><strong>Figure 5</strong> - Threads : <span class="a-completer">à légender (capture du code ou de l'exécution)</span></figcaption>
+</figure>
+
+						<h5>c) Extraits de code Python</h5>
+						<p>Extraits issus du dépôt, sans modification.</p>
+						<div class="code-title">src/simulation/simulation.py - feux_sync() : machine à états du cycle des feux (compteur de ticks, sans time.sleep)</div>
+<pre class="code"><code>def feux_sync(self):
+    self.__time_remaining -= 1
+
+    if self.__time_remaining &lt;= 0:
+        if self.__cycle_state == &quot;horizontal_vert&quot;:
+            self.__feu_droite.set_etat(&quot;orange&quot;)
+            self.__feu_gauche.set_etat(&quot;orange&quot;)
+            self.__cycle_state = &quot;horizontal_orange&quot;
+            self.__time_remaining = 50
+
+        elif self.__cycle_state == &quot;horizontal_orange&quot;:
+            self.__feu_droite.set_etat(&quot;rouge&quot;)
+            self.__feu_gauche.set_etat(&quot;rouge&quot;)
+            self.__cycle_state = &quot;tout_rouge_1&quot;
+            self.__time_remaining = 50
+
+        elif self.__cycle_state == &quot;tout_rouge_1&quot;:
+            self.__feu_bas.set_etat(&quot;vert&quot;)
+            self.__feu_haut.set_etat(&quot;vert&quot;)
+            self.__cycle_state = &quot;vertical_vert&quot;
+            self.__time_remaining = 100
+        # ... vertical_vert, vertical_orange, tout_rouge_2 : même principe</code></pre>
+						<div class="code-title">src/simulation/simulation.py - avancer() : détection du véhicule devant (même voie, puis distance de sécurité)</div>
+<pre class="code"><code>for autre in self.__vehicules:
+    if autre is vehicule:
+        continue
+
+    dx = autre.get_x() - vehicule.get_x()
+    dy = autre.get_y() - vehicule.get_y()
+
+    devant = False
+    if vehicule.get_direction() == &quot;droite&quot; and dx &gt; 0 and abs(dy) &lt; 20:
+        devant = True
+    elif vehicule.get_direction() == &quot;gauche&quot; and dx &lt; 0 and abs(dy) &lt; 20:
+        devant = True
+    elif vehicule.get_direction() == &quot;bas&quot; and dy &gt; 0 and abs(dx) &lt; 20:
+        devant = True
+    elif vehicule.get_direction() == &quot;haut&quot; and dy &lt; 0 and abs(dx) &lt; 20:
+        devant = True
+
+    if devant:
+        distance = (dx ** 2 + dy ** 2) ** 0.5
+        if distance &lt; 40:
+            doit_s_arreter = True</code></pre>
+						<div class="code-title">src/simulation/simulation.py - voie_libre() : un véhicule ne tourne que si la voie d&#x27;arrivée est libre</div>
+<pre class="code"><code>def voie_libre(self, vehicule):
+    seuil = 60
+
+    for autre in self.__vehicules:
+        if autre is vehicule:
+            continue
+
+        # HAUT -&gt; BAS
+        if vehicule.get_direction() == &quot;bas&quot;:
+            if autre.get_direction() == &quot;haut&quot;:
+                if abs(autre.get_y() - vehicule.get_y()) &lt; seuil:
+                    if autre.get_destination() in (None, &quot;gauche&quot;):
+                        continue
+
+                    if autre.get_destination() == &quot;droite&quot;:
+                        return False
+        # ... mêmes tests pour les trois autres directions
+    return True</code></pre>
+
+						<h5>d) Cahier des charges et comptes rendus</h5>
+						<div class="proof-row">
+							<div class="proof-badge"><span>↗</span> Cahier des charges défini par l'équipe : <span class="a-completer">lien ou fichier PDF</span></div>
+							<div class="proof-badge"><span>↗</span> Comptes rendus hebdomadaires : <span class="a-completer">liens</span></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Liens avec C1 / C2 -->
+			<div class="situation-card" style="margin-top:1.5rem;">
+				<h4>Liens avec C2 - Connecter et C1 - Administrer</h4>
+				<p>
+					La phase réseau mobilisera aussi C2 (communication par sockets TCP entre un serveur et plusieurs clients, ports, pare-feu) et
+					C1 (installation et déploiement sur Linux, macOS et Windows). Ces fiches seront ajoutées quand ces parties seront réalisées.
+				</p>
+				<div><span class="tag">Sockets</span><span class="tag">TCP</span><span class="tag">Déploiement</span></div>
+			</div>
+		</section>
+
+		<!-- ── STACK TECHNIQUE ── -->
+		<section class="container section-block">
+			<h2>Stack technique</h2>
+			<div class="ac-grid">
+				<div class="ac-item">
+					<div class="ac-code">LANGAGE</div>
+					<div class="ac-label">Python 3</div>
+					<div class="ac-desc">Programmation orientée objet, modules standard (<code>random</code>, <code>threading</code>).</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">INTERFACE</div>
+					<div class="ac-label">PyQt6</div>
+					<div class="ac-desc"><code>QWidget</code>, <code>QTimer</code>, <code>QPainter</code> : animation et dessin de la simulation.</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">RÉSEAU</div>
+					<div class="ac-label">Sockets TCP (prévu)</div>
+					<div class="ac-desc">Architecture client / serveur, messages JSON, plusieurs clients.</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">DONNÉES</div>
+					<div class="ac-label">Base de données (prévu)</div>
+					<div class="ac-desc">Historique des urgences et statistiques du trafic.</div>
+				</div>
+				<div class="ac-item">
+					<div class="ac-code">VERSIONING</div>
+					<div class="ac-label">Git / GitHub</div>
+					<div class="ac-desc">Plusieurs branches, fusion des fonctionnalités dans la branche principale.</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── RETOUR PROJETS ── -->
+		<section class="container" style="padding:1.5rem 0 3rem;">
+			<a class="btn" href="index.html#projets">← Retour aux projets</a>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>&copy; 2026 Roulier Jacques - BUT RT - Portfolio compétences</p>
+		</div>
+	</footer>
+</body>
+</html>
