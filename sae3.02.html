@@ -101,7 +101,7 @@
 				<div class="tl-item">
 					<div class="tl-date">RÉALISÉ</div>
 					<div class="tl-title">Threads</div>
-					<div class="tl-desc">Mise en place des threads de l'application. <span class="a-completer">à compléter : ce qui s'exécute dans chaque thread</span></div>
+					<div class="tl-desc">Mise en place des threads de l'application.</div>
 				</div>
 				<div class="tl-item">
 					<div class="tl-date">PROCHAINE ÉTAPE</div>
@@ -145,10 +145,6 @@
 		<!-- ── MES CONTRIBUTIONS ── -->
 		<section class="container section-block">
 			<h2>Mes contributions</h2>
-			<p class="note">
-				Répartition des tâches au sein de l'équipe : <span class="a-completer">à compléter (qui a fait quoi)</span>.
-				Ci-dessous, ce que j'ai développé ou intégré personnellement.
-			</p>
 
 			<div class="ac-grid">
 				<div class="ac-item">
@@ -214,25 +210,10 @@
 				</div>
 
 				<div class="ac-item">
-					<div class="ac-code">INTÉGRATION</div>
-					<div class="ac-label">Véhicules prioritaires</div>
-					<div class="ac-desc">
-						Récupération du code des véhicules prioritaires développé sur une seconde branche
-						<span class="a-completer">à préciser : auteur</span>
-						et intégration à la branche principale en conservant le parking : priorité aux feux, panneau d'urgence,
-						voitures qui se rangent.
-					</div>
-					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
-						<span class="tag">Git</span><span class="tag">Fusion de branches</span>
-					</div>
-				</div>
-
-				<div class="ac-item">
 					<div class="ac-code">CONCURRENCE</div>
 					<div class="ac-label">Threads</div>
 					<div class="ac-desc">
 						Mise en place des threads de l'application, première étape avant le passage au réseau.
-						<span class="a-completer">à détailler</span>
 					</div>
 					<div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem;">
 						<span class="tag">threading</span>
@@ -308,36 +289,12 @@
 								</div>
 							</div>
 							<div class="ac-item">
-								<div class="ac-origin prevu">Prévu</div>
+								<div class="ac-origin nouveau">Mobilisé - réalisé</div>
 								<div class="ac-code">AC23.03</div>
 								<div class="ac-label">« Utiliser un protocole réseau pour programmer une application client/serveur »</div>
 								<div class="ac-desc">
 									Serveur de simulation et clients d'affichage reliés par sockets TCP, avec échange de messages JSON
 									et un thread par client.
-								</div>
-							</div>
-							<div class="ac-item">
-								<div class="ac-origin prevu">Prévu</div>
-								<div class="ac-code">AC23.04</div>
-								<div class="ac-label">« Installer, administrer un système de gestion de données »</div>
-								<div class="ac-desc">
-									Choix, mise en place et administration du système de gestion de données qui stockera l'historique.
-								</div>
-							</div>
-							<div class="ac-item">
-								<div class="ac-origin prevu">Prévu</div>
-								<div class="ac-code">AC23.05</div>
-								<div class="ac-label">« Accéder à un ensemble de données depuis une application et/ou un site web »</div>
-								<div class="ac-desc">
-									Enregistrement des urgences et des mesures de trafic, puis consultation depuis l'application.
-								</div>
-							</div>
-							<div class="ac-item">
-								<div class="ac-origin prevu">Prévu</div>
-								<div class="ac-code">AC23.01</div>
-								<div class="ac-label">« Automatiser l'administration système avec des scripts »</div>
-								<div class="ac-desc">
-									Scripts d'installation et de lancement pour les trois systèmes d'exploitation.
 								</div>
 							</div>
 						</div>
@@ -428,44 +385,13 @@
 					<div class="matrix-card m4" id="preuves">
 						<h4>4. Liste des traces et des preuves (vérifiables)</h4>
 
-						<h5>a) Historique Git</h5>
+						<h5>a) Github</h5>
 						<p>Commits et branches dont je suis l'auteur :</p>
 						<div class="proof-row">
-							<div class="proof-badge"><span>↗</span> Dépôt du projet : <span class="a-completer">lien GitHub</span></div>
-							<div class="proof-badge"><span>↗</span> Boucle de simulation et feux : <span class="a-completer">lien commit</span></div>
-							<div class="proof-badge"><span>↗</span> Parking : <span class="a-completer">lien commit</span></div>
-							<div class="proof-badge"><span>↗</span> Fusion des véhicules prioritaires : <span class="a-completer">lien commit</span></div>
-							<div class="proof-badge"><span>↗</span> Threads : <span class="a-completer">lien commit</span></div>
+							<div class="proof-badge"><span>↗</span> Dépôt du projet : <a href="https://github.com/Grenat-404/SAE3.02">Github SAE3.02</a></div>
 						</div>
-
-						<h5>b) Captures d'écran légendées</h5>
-						<figure class="capture">
-	<img src="images/sae302-carrefour.png" alt="Vue d&#x27;ensemble du carrefour avec voitures et feux" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-carrefour.png</code></div>
-	<figcaption><strong>Figure 1</strong> - Vue d'ensemble : carrefour, feux à trois lampes, voitures colorées et marquages (lignes d'arrêt, séparateur de voies).</figcaption>
-</figure>
-<figure class="capture">
-	<img src="images/sae302-feux-file.png" alt="Voitures à l&#x27;arrêt à un feu rouge" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-feux-file.png</code></div>
-	<figcaption><strong>Figure 2</strong> - Feu au rouge : les voitures s'arrêtent derrière la ligne d'arrêt en respectant la distance de sécurité.</figcaption>
-</figure>
-<figure class="capture">
-	<img src="images/sae302-parking.png" alt="Parking avec compteur de places libres" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-parking.png</code></div>
-	<figcaption><strong>Figure 3</strong> - Parking : places, voies d'entrée et de sortie, compteur « places libres / total ».</figcaption>
-</figure>
-<figure class="capture">
-	<img src="images/sae302-urgence.png" alt="Véhicule prioritaire et panneau de création d&#x27;urgence" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-urgence.png</code></div>
-	<figcaption><strong>Figure 4</strong> - Véhicule prioritaire : le panneau d'urgence crée l'intervention, les feux passent au vert pour le véhicule et les voitures se rangent.</figcaption>
-</figure>
-<figure class="capture">
-	<img src="images/sae302-threads.png" alt="Console ou schéma illustrant les threads de l&#x27;application" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-	<div class="a-completer" hidden>Capture à ajouter : <code>images/sae302-threads.png</code></div>
-	<figcaption><strong>Figure 5</strong> - Threads : <span class="a-completer">à légender (capture du code ou de l'exécution)</span></figcaption>
-</figure>
-
-						<h5>c) Extraits de code Python</h5>
+					
+						<h5>b) Extraits de code Python</h5>
 						<p>Extraits issus du dépôt, sans modification.</p>
 						<div class="code-title">src/simulation/simulation.py - feux_sync() : machine à états du cycle des feux (compteur de ticks, sans time.sleep)</div>
 <pre class="code"><code>def feux_sync(self):
@@ -531,12 +457,6 @@
                         return False
         # ... mêmes tests pour les trois autres directions
     return True</code></pre>
-
-						<h5>d) Cahier des charges et comptes rendus</h5>
-						<div class="proof-row">
-							<div class="proof-badge"><span>↗</span> Cahier des charges défini par l'équipe : <span class="a-completer">lien ou fichier PDF</span></div>
-							<div class="proof-badge"><span>↗</span> Comptes rendus hebdomadaires : <span class="a-completer">liens</span></div>
-						</div>
 					</div>
 
 				</div>
